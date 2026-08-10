@@ -46,10 +46,15 @@ export function ContactSection() {
     e.preventDefault();
     setStatus("loading");
 
-    setTimeout(() => {
+    const result = await sendContactEmail(formData);
+
+    if (result.success) {
       setStatus("success");
       setFormData({ name: "", email: "", type: "", message: "" });
-    }, 800);
+    } else {
+      setStatus("idle");
+      alert(result.error || "Une erreur est survenue lors de l'envoi.");
+    }
   };
 
   return (
@@ -232,9 +237,9 @@ export function ContactSection() {
                             <option value="" disabled className="bg-bg-card text-text-default">
                               Sélectionnez une option
                             </option>
-                            <option value="ux-ui" className="bg-bg-card text-text-default">UX/UI Design</option>
-                            <option value="motion" className="bg-bg-card text-text-default">Motion Design</option>
-                            <option value="contact-autre" className="bg-bg-card text-text-default">Prise de contact / Autre</option>
+                            <option value="UX/UI Design" className="bg-bg-card text-text-default">UX/UI Design</option>
+                            <option value="Motion Design" className="bg-bg-card text-text-default">Motion Design</option>
+                            <option value="Prise de contact / Autre" className="bg-bg-card text-text-default">Prise de contact / Autre</option>
                           </select>
                           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-secondary">
                             <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
@@ -298,4 +303,4 @@ export function ContactSection() {
       </section>
     </>
   );
-} 
+}
