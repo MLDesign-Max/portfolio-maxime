@@ -1,5 +1,6 @@
 "use client";
 
+import { sendContactEmail } from "../../app/actions/contact";
 import * as React from "react";
 import { useState } from "react";
 import { Check } from "lucide-react";
