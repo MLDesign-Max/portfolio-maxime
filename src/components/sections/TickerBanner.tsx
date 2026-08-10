@@ -50,12 +50,12 @@ export function TickerBanner() {
         delay: 0.6, // Décalage pour laisser la HeroSection terminer son apparition
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
-      className="overflow-hidden border-y border-border-thin bg-bg-card"
+      className="overflow-hidden border-y border-border-thin bg-bg-banner transition-colors duration-300"
     >
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="flex w-max cursor-pointer py-6 font-mono text-[20px] font-light italic leading-[1.2] tracking-[1.28px] whitespace-nowrap text-primary-400 md:text-[26px] lg:text-[32px]"
+        className="flex w-max cursor-pointer py-6 font-mono text-[20px] font-normal italic leading-[1.2] tracking-[1.28px] whitespace-nowrap text-[#0048e4] dark:text-[#3b82f6] md:text-[26px] lg:text-[32px]"
       >
         {/* Conteneur gérant le défilement infini et le ralentissement au survol */}
         <motion.div

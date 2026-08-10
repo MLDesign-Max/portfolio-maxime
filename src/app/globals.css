@@ -20,6 +20,7 @@
   --color-bg-cyan-pill: var(--background-bg-cyan-pill);
   --color-bg-pill-lighter: var(--background-bg-pill-lighter);
   --color-bg-pill-available: var(--background-bg-pill-available);
+  --color-bg-banner: var(--background-bg-banner);
 
   --color-text-default: var(--text-text-default);
   --color-text-secondary: var(--text-text-secondary);
@@ -80,6 +81,7 @@
   --text-text-pill-available: #20ba15;
   --background-bg-pill-available: #2c2c2c;
   --background-bg-page: #1e1e1e;
+  --background-bg-banner: #181818; /* Dark-500 pour le mode sombre */
   --text-text-highlight: #0048e4;
   --text-text-default: #ffffff;
   --text-text-on-action: #ffffff;
@@ -122,6 +124,7 @@
   --text-text-pill-available: #20ba15;
   --background-bg-pill-available: #ffffff;
   --background-bg-page: #fafafa;
+  --background-bg-banner: #ffffff; /* #FFFFFF pour le mode clair */
   --text-text-highlight: #0048e4;
   --text-text-default: #000032;
   --text-text-on-action: #ffffff;
