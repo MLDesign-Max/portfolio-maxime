@@ -1,0 +1,419 @@
+[
+  {
+    "id": "sfo-dashboard",
+    "type": "ux-ui",
+    "title": "Dashboard Métier",
+    "client": "Société Française de l'Or",
+    "role": "Product Designer",
+    "sector": "SaaS B2B / Négoce d'Or",
+    "year": "2025",
+    "tags": [
+      {
+        "label": "UX/UI Design",
+        "color": "blue"
+      },
+      {
+        "label": "Outil métier",
+        "color": "gray"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/sfo-dashboard-thumb.png",
+    "media": {
+      "type": "image",
+      "url": "/assets/projects/images/sfo-dashboard-modal.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Conception et refonte globale d'un <b>outil métier sur-mesure</b> pour les responsables d'agences de la <b>Société Française de l'Or</b>. À la suite d'une phase d'analyse approfondie des besoins prioritaires (<b>must-haves</b>) et d'un travail sur la hiérarchie visuelle, la plateforme centralise l'ensemble des opérations quotidiennes : <b>rachat/revente de métaux précieux</b> (Or, Argent, Platine), <b>gestion des fiches clients</b>, <b>historique des transactions</b> et <b>suivi logistique</b> vers les fonderies."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Remplacer une gestion historique basée sur de <b>multiples fichiers Excel complexes et éparpillés</b>. L'enjeu : condenser une <b>très forte densité de données financières</b>, de <b>traçabilité client</b> (informations administratives obligatoires) et d'inventaire au sein d'une interface claire, <b>éliminant les erreurs de saisie</b> sur des opérations à fort enjeu réglementaire et financier."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Restructuration complète de l'architecture de l'information autour des actions prioritaires du responsable d'agence :\n\n• <b>Déclencheur principal :</b> Accès direct au bouton <b>'+ Nouvel achat'</b>, point d'entrée de la tâche la plus fréquente en boutique.\n\n• <b>Mise à jour du cours en direct :</b> Affichage dynamique du prix de l'or (<b>65,40 €/g</b>) avec survol explicatif par carat, servant de repère visuel et de plafond de rachat en back-end.\n\n• <b>Traçabilité & Fichier Client :</b> Intégration des fiches clients et de l'historique complet pour <b>sécuriser la conformité</b> lors des transactions.\n\n• <b>Réduction de la charge cognitive :</b> Widget <b>'Actions requises'</b> isolant les urgences opérationnelles pour éviter tout oubli en fin de journée."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Transformation d'un processus lourd sur tableur en un <b>outil structuré</b> avec des vues dédiées par métier. Résultat : une <b>prise en main immédiate</b> par les équipes en agence sans formation préalable, une <b>parfaite conformité</b> sur le suivi client et un <b>gain de temps précieux</b> sur le traitement quotidien des dossiers."
+      }
+    ]
+  },
+  {
+    "id": "simax-landing",
+    "type": "ux-ui",
+    "title": "Landing Page ERP-CRM",
+    "client": "SIMAX",
+    "role": "UX/UI Designer",
+    "sector": "SaaS B2B",
+    "year": "2024",
+    "tags": [
+      {
+        "label": "UX/UI Design",
+        "color": "blue"
+      },
+      {
+        "label": "Landing Page",
+        "color": "gray"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/simax-landing-thumb.png",
+    "media": {
+      "type": "image",
+      "url": "/assets/projects/images/simax-landing-modal.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Création de zéro des <b>landing pages d'acquisition B2B</b> pour l'éditeur de logiciels SIMAX dans le cadre d'une collaboration en agence. L'objectif était de concevoir la page produit vitrine (ERP-CRM) tout en créant un <b>template de webinaire sur-mesure</b> pour alimenter la stratégie récurrente de génération de leads de l'entreprise."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Expliciter un logiciel B2B complet à travers un parcours clair, tout en posant les <b>fondations graphiques globales</b> de la marque. L'enjeu design et UX résidait dans la création d'un <b>système modulaire</b> permettant à l'équipe marketing de décliner rapidement de nouvelles pages d'événements sans perdre en cohérence visuelle."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Mise en place d'un système visuel réutilisable (charte typographique, palette de couleurs, ombres et icônes) combiné à un travail de conversion ciblé sur le webinaire :\n\n• <b>Hero immersif :</b> Intégration d'un teaser vidéo dès le haut de page pour capter immédiatement l'attention des prospects B2B.\n\n• <b>Programme chronologique :</b> Découpage de la session par tranches de temps (10 min, 20 min...) pour lever les freins liés à la disponibilité des décideurs.\n\n• <b>Réassurance & Preuve sociale :</b> Valorisation du speaker, témoignages clients vidéo, logos grands comptes (Flunch, Bpifrance) et FAQ interactive pour rassurer avant l'inscription."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Une <b>image de marque modernisée</b> et un tunnel d'acquisition B2B clarifié. La conception sous forme de composants réutilisables offre une <b>autonomie totale à l'équipe marketing</b> pour publier chaque mois de nouvelles pages de webinaires en quelques minutes."
+      }
+    ]
+  },
+  {
+    "id": "marketplaces-dreamline",
+    "type": "ux-ui",
+    "title": "Marketplaces Services",
+    "client": "Dreamline Studio",
+    "role": "Product Designer",
+    "sector": "E-Commerce",
+    "year": "2024",
+    "tags": [
+      {
+        "label": "UX/UI Design",
+        "color": "blue"
+      },
+      {
+        "label": "Marketplace",
+        "color": "gray"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/marketplaces-dreamline-thumb.png",
+    "media": {
+      "type": "image",
+      "url": "/assets/projects/images/marketplaces-dreamline-modal.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Conception d'une marketplace B2B pour l'agence Dreamline Studio afin de digitaliser et productiser l'accès à ses prestations créatives et techniques (UX/UI, Dev, Copywriting). L'objectif était de permettre aux clients de <b>composer leur pack sur-mesure</b> en toute transparence sur les prix et les délais."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Transposer la simplicité d'un e-commerce B2C à la vente de prestations de services complexes. L'enjeu UX résidait dans l'<b>acculturation du client</b> (expliquer l'impact et l'utilité de chaque prestation) tout en permettant à l'agence d'<b>anticiper la charge opérationnelle</b> interne pour mieux scaler."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Structuration d'un parcours d'achat très didactique pour rendre la commande de services aussi intuitive qu'un achat de produit physique :\n\n• <b>Catalogue & Filtres ciblés :</b> Système de filtres latéraux (catégorie, typologie de besoin, budget) pour composer facilement son offre personnalisée.\n\n• <b>Fiches services détaillées :</b> Clarification des livrables, affichage transparent des tarifs et des temps de réalisation pour lever les doutes avant l'achat.\n\n• <b>Tunnel & Roadmap post-achat :</b> Récapitulatif du panier sur-mesure et écran de confirmation structuré exposant la feuille de route des 'Prochaines étapes'."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Une expérience e-commerce qui simplifie la lecture de l'offre de l'agence. Le client gagne en <b>autonomie pour calibrer son projet</b>, tandis que Dreamline Studio rationalise sa prise de commande et <b>optimise l'allocation de ses ressources</b> internes."
+      }
+    ]
+  },
+  {
+    "id": "ctomesh-lms",
+    "type": "ux-ui",
+    "title": "Plateforme de Formations B2B",
+    "client": "CTOMESH",
+    "role": "UX/UI Designer",
+    "sector": "EdTech / E-learning",
+    "year": "2024",
+    "tags": [
+      {
+        "label": "UX/UI Design",
+        "color": "blue"
+      },
+      {
+        "label": "Web App",
+        "color": "gray"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/ctomesh-lms-thumb.png",
+    "media": {
+      "type": "image",
+      "url": "/assets/projects/images/ctomesh-lms-modal.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Conception intégrale de la plateforme B2B de <b>CTOMESH</b>, organisme spécialisé dans les séminaires IT de haut niveau (APIs, Microservices). L'objectif était de créer un écosystème web complet : de la page d'accueil vitrine au catalogue interactif, jusqu'au <b>tunnel de réservation en plusieurs étapes</b> pour les demandes de devis."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Partir d'une feuille blanche pour structurer une offre technique complexe à destination des <b>décideurs IT et CTOs grands comptes</b>. L'enjeu UX majeur résidait dans la transformation de programmes informatiques très denses en une <b>expérience fluide et engageante</b>, faisant sauter les verrous d'accès aux demandes."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Déploiement d'une direction artistique 'Clean & Tech' articulée autour d'un parcours utilisateur optimisé pour la conversion :\n\n• <b>Code couleur par catégorie :</b> Harmonisation des cartes du catalogue avec une distinction chromatique par thématique pour faciliter la navigation visuelle.\n\n• <b>Fiches programmes structurées :</b> Mise en valeur des critères clés (durée, niveau, format) et découpage par modules pour rendre les sujets complexes immédiatement lisibles.\n\n• <b>Tunnel de réservation guidé :</b> Conception d'un parcours d'inscription en plusieurs étapes pour simplifier la demande de devis et réduire la friction."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Une interface hautement crédible renforçant la légitimité de l'offre auprès des décideurs. Le travail sur la lisibilité de contenus réputés 'assommants' et la clarté du tunnel de commande garantissent un <b>parcours de réservation sans friction</b>."
+      }
+    ]
+  },
+  {
+    "id": "portfolio-freelance",
+    "type": "ux-ui",
+    "title": "Branding & Portfolio",
+    "client": "Collaboration Freelance",
+    "role": "UX/UI Designer",
+    "sector": "Portfolio",
+    "year": "2025",
+    "tags": [
+      {
+        "label": "UX/UI Design",
+        "color": "blue"
+      },
+      {
+        "label": "Branding",
+        "color": "purple"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/portfolio-freelance-thumb.png",
+    "media": {
+      "type": "image",
+      "url": "/assets/projects/images/portfolio-freelance-modal.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Conception de l'identité numérique et du portfolio multi-pages pour Jules Belamy, entrepreneur et expert en Growth Hacking. L'objectif était de centraliser sa notoriété personnelle, son parcours et ses compétences tout en valorisant ses deux structures phares : son agence (<b>Dreamline Studio</b>) et son académie de formation (<b>SELUL</b>)."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Articuler la présence d'un profil multi-casquettes sans perdre le visiteur. L'enjeu UX résidait dans l'organisation d'une <b>forte densité de contenus</b> (parcours, baromètre de compétences, réseaux sociaux, blog) tout en orientant très clairement le trafic vers les différentes offres de services."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Conception d'une interface épurée et très visuelle, optimisée pour convertir la notoriété de l'expert en opportunités business :\n\n• <b>Hero & Preuve sociale immédiate :</b> Mise en valeur des chiffres clés (94% satisfaction, 200 entreprises) autour du portrait et bandeau de logos grands comptes (Microsoft, SNCF, Orange) dès l'en-tête.\n\n• <b>Aiguillage & Offres ciblées :</b> Structuration de blocs d'orientation distincts pour guider les visiteurs selon leur besoin ('Se former' ou 'Accélérer avec l'agence').\n\n• <b>Contenus multi-formats :</b> Intégration des métriques de compétences, vignettes vidéos YouTube et hub de blog pour asseoir l'autorité technique et renforcer le maillage."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Un positionnement premium affirmant l'autorité de l'expert. L'architecture clarifiée transforme la présence en ligne de l'entrepreneur en un <b>canal d'acquisition direct</b> pour la génération de leads qualifiés et la vente de formations."
+      }
+    ]
+  },
+  {
+    "id": "cynk-security",
+    "type": "ux-ui",
+    "title": "Landing Page Cybersécurité",
+    "client": "CYNK",
+    "role": "UX/UI Designer",
+    "sector": "Cybersécurité B2B",
+    "year": "2023",
+    "tags": [
+      {
+        "label": "UX/UI Design",
+        "color": "blue"
+      },
+      {
+        "label": "Landing Page",
+        "color": "gray"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/cynk-security-thumb.png",
+    "media": {
+      "type": "image",
+      "url": "/assets/projects/images/cynk-security-modal.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Conception de la landing page d'acquisition B2B pour <b>CYNK</b>, entreprise spécialisée dans la protection informatique globale. L'objectif était de créer une vitrine digitale engageante pour sensibiliser les dirigeants de TPE/PME aux risques de cyberattaques et simplifier leur démarche de sécurisation."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Rendre accessible un sujet souvent perçu comme complexe, anxiogène et hors de prix. L'enjeu UX résidait dans l'<b>éducation du client non-technique</b> : démontrer la réalité des risques (piratage, fuite de données, télétravail) tout en dédramatisant l'accès aux solutions grâce à une <b>proposition de valeur rassurante</b>."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Élaboration d'une direction artistique captivante et structurée pour maximiser la conversion :\n\n• <b>Direction Artistique Dark Mode :</b> Univers sombre rehaussé de nuances lumineuses et d'icônes de sécurité pour affirmer la dimension 'haute technologie'.\n\n• <b>Découpage en 3 piliers :</b> Structuration de l'offre en 3 blocs lisibles (entreprise, salariés, infrastructure) pour matérialiser la couverture globale.\n\n• <b>Accroche choc & Tarifs transparents :</b> Utilisation de données d'impact dès le premier écran couplée à une grille tarifaire claire (offres d'audit et sur-mesure) pour lever immédiatement la crainte du coût."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Une vitrine persuasive qui déconstruit les idées reçues sur la cybersécurité B2B. La clarté du parcours et la transparence des prix offrent aux décideurs un <b>accès simplifié à la demande d'audit</b> et à la prise de contact."
+      }
+    ]
+  },
+  {
+    "id": "minuty-branding",
+    "type": "motion",
+    "title": "Vidéo Signature Minuty",
+    "client": "Château Minuty",
+    "role": "Motion Designer",
+    "sector": "Luxe / Vins & Spiritueux",
+    "year": "2023",
+    "tags": [
+      {
+        "label": "Motion Design",
+        "color": "purple"
+      },
+      {
+        "label": "Luxe",
+        "color": "amber"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/minuty-branding-thumb.png",
+    "media": {
+      "type": "video",
+      "url": "/assets/projects/videos/minuty-branding-video.mp4",
+      "posterUrl": "/assets/projects/images/minuty-branding-poster.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Réalisation de la vidéo de marque signature du <b>Château Minuty</b> en collaboration avec l'agence Malherbe. L'objectif était de concevoir un contenu vidéo haut de gamme destiné à YouTube pour valoriser l'histoire familiale du domaine, son terroir provencal et l'excellence de ses cuvées."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Donner vie au script et au storyboard fournis par l'agence sans jamais essouffler le rythme visuel. L'enjeu résidait dans l'<b>animation de visuels et photos statiques</b> afin de créer du mouvement continu tout en respectant scrupuleusement les codes graphiques raffinés du secteur du luxe."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Travail d'animation, de montage et de découpage précis sous After Effects et Photoshop pour installer une atmosphère solaire et poétique :\n\n• <b>Animation de visuels statiques :</b> Découpage multi-calques sur Photoshop (ex : isolation des motifs de fruits et de peinture) pour simuler des effets d'écoulement et de matière fluides.\n\n• <b>Transitions lumineuses :</b> Intégration de jeux de lumière et de fondus chaleureux évoquant l'identité solaire du terroir varois.\n\n• <b>Typographies épurées :</b> Animation délicate des textes institutionnels et habillage visuel synchronisé pour renforcer le storytelling de marque."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Un contenu de marque d'une grande élégance esthétique, diffusé sur YouTube pour <b>affirmer le positionnement premium</b> du domaine et enrichir sa communication digitale d'un récit visuel fort."
+      }
+    ]
+  },
+  {
+    "id": "showreel-2026",
+    "type": "motion",
+    "title": "Showreel Motion",
+    "client": "Projet Personnel",
+    "role": "Motion Designer",
+    "sector": "Design & Motion",
+    "year": "2023",
+    "tags": [
+      {
+        "label": "Motion Design",
+        "color": "purple"
+      },
+      {
+        "label": "Showreel",
+        "color": "green"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/showreel-2026-thumb.png",
+    "media": {
+      "type": "video",
+      "url": "/assets/projects/videos/showreel-2026-video.mp4",
+      "posterUrl": "/assets/projects/images/showreel-2026-poster.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Création d'une bande démo (Showreel) condensée réunissant mes compétences clés en Motion Design : <b>animations de logos</b>, <b>Kinetic Typography</b>, <b>Character Animation via Duik</b>, intégrations <b>Lottie</b> et <b>MOGRT</b>. L'objectif était de concevoir un portfolio vidéo percutant à destination des prospects et recruteurs."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Synthétiser des projets aux univers et contraintes très variés tout en maintenant une <b>cohérence visuelle globale</b>. L'enjeu résidait dans la préparation technique en amont (recherches sectorielles, storyboard) et la rigueur d'exécution pour garantir une transition fluide entre chaque séquence."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Mise en place d'un workflow de production complet sous After Effects et outils Adobe :\n\n• <b>Préparation & Rigging :</b> Travail de décomposition minutieuse des calques (illustrations vectorielles) pour optimiser le passage au rigging de personnages sous Duik.\n\n• <b>Direction Artistique & Recherches :</b> Phase de storyboarding et test d'habillage graphique original pour la séquence d'ouverture du reel.\n\n• <b>Sound Design & Dynamisme :</b> Choix d'une piste sonore rythmée et intégration de SFX (effets sonores) synchronisés pour appuyer les mouvements et maximiser l'impact visuel."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Une vitrine visuelle dynamique qui permet aux prospects et recruteurs d'<b>évaluer immédiatement la maîtrise technique</b>, le sens du rythme et la sensibilité esthétique en 60 secondes chrono."
+      }
+    ]
+  },
+  {
+    "id": "vertical-art-motion",
+    "type": "motion",
+    "title": "Habillage Motion",
+    "client": "Vertical'Art",
+    "role": "Motion Designer",
+    "sector": "Sport & Leisure",
+    "year": "2022",
+    "tags": [
+      {
+        "label": "Motion Design",
+        "color": "purple"
+      },
+      {
+        "label": "Branding",
+        "color": "amber"
+      }
+    ],
+    "thumbnailUrl": "/assets/projects/images/vertical-art-motion-thumb.png",
+    "media": {
+      "type": "video",
+      "url": "/assets/projects/videos/vertical-art-motion-video.mp4",
+      "posterUrl": "/assets/projects/images/vertical-art-motion-poster.png"
+    },
+    "steps": [
+      {
+        "number": "01",
+        "title": "CONTEXTE",
+        "description": "Conception d'un kit d'habillage graphique en Motion Design pour la marque de salles d'escalade <b>Vertical'Art</b>. L'objectif était de fournir des éléments d'intro, d'outro et de titrage dynamique pour habiller et uniformiser leurs contenus vidéo sur les réseaux sociaux."
+      },
+      {
+        "number": "02",
+        "title": "DÉFI",
+        "description": "Insuffler une identité visuelle punchy et urbaine, inspirée des codes des médias sportifs modernes. L'enjeu technique résidait dans la création d'<b>assets autonomes sur fond transparent</b>, prêts à être incrustés facilement par l'équipe vidéo sans alourdir leur workflow de montage."
+      },
+      {
+        "number": "03",
+        "title": "MÉTHODOLOGIE",
+        "description": "Création sous After Effects d'éléments graphiques réutilisables adaptés au format horizontal (16/9) :\n\n• <b>Intro & Outro de marque :</b> Animations d'ouverture et de fermeture affirmant le territoire visuel signature (palette jaune et noir).\n\n• <b>Typographies cinétiques :</b> Animation dynamique d'une quinzaine de mots-clés (Kinetic Typography) avec une typographie imposante pour rythmer le contenu et capter l'attention.\n\n• <b>Livrables en Canal Alpha :</b> Exportations sur fond transparent permettant à l'équipe de superposer instantanément les titres sur leurs pistes vidéo."
+      },
+      {
+        "number": "04",
+        "title": "RÉSULTAT & IMPACT",
+        "description": "Un kit 'plug & play' qui professionnalise la production vidéo de Vertical'Art. Les animations rythmées apportent un <b>impact visuel fort sur les réseaux sociaux</b> et renforcent l'image de marque auprès de la communauté."
+      }
+    ]
+  }
+]

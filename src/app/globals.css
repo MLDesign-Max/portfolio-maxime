@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+/* next-themes pilote le thème par classe (attribute="class"), pas par media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-satoshi: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  
+  --color-bg-page: var(--background-bg-page);
+  --color-bg-card: var(--background-bg-card);
+  --color-bg-action: var(--background-bg-action);
+  --color-bg-action-secondary: var(--background-bg-action-secondary);
+  --color-bg-nav-item: var(--background-bg-nav-item);
+  --color-bg-brand-pill: var(--background-bg-brand-pill);
+  --color-bg-yellow-pill: var(--background-bg-yellow-pill);
+  --color-bg-purple-pill: var(--background-bg-purple-pill);
+  --color-bg-blue-pill: var(--background-bg-blue-pill);
+  --color-bg-cyan-pill: var(--background-bg-cyan-pill);
+  --color-bg-pill-lighter: var(--background-bg-pill-lighter);
+  --color-bg-pill-available: var(--background-bg-pill-available);
+
+  --color-text-default: var(--text-text-default);
+  --color-text-secondary: var(--text-text-secondary);
+  --color-text-highlight: var(--text-text-highlight);
+  --color-text-logo: var(--text-text-logo);
+  --color-text-navitem-active: var(--text-text-navitem-active);
+  --color-text-on-action: var(--text-text-on-action);
+  --color-text-pill-primary: var(--text-text-pill-primary);
+  --color-text-pill-secondary: var(--text-text-pill-secondary);
+  --color-text-pill-tertiary: var(--text-text-pill-tertiary);
+  --color-text-pill-quartery: var(--text-text-pill-quartery);
+  --color-text-pill-available: var(--text-text-pill-available);
+
+  --color-border-thin: var(--border-border-thin);
+  --color-border-brand-btn: var(--border-border-brand-btn);
+  --color-border-brand-pill: var(--border-border-brand-pill);
+  --color-border-brand-pill-lighter: var(--border-border-brand-pill-lighter);
+  --color-border-purple-pill-lighter: var(--border-border-purple-pill-lighter);
+  --color-border-yellow-pill-lighter: var(--border-border-yellow-pill-lighter);
+  --color-border-cyan-pill-lighter: var(--border-border-cyan-pill-lighter);
+  --color-border-available-pill: var(--border-border-available-pill);
+  
+  --color-icon-default: var(--icon-icon-default);
+  --color-icon-available: var(--icon-icon-available);
+  --color-icon-link: var(--icon-icon-link);
+
+  --color-primary-400: var(--primary-400);
+
+  /* Alias court du bleu de marque, pour `text-brand`, `shadow-brand/20`, etc. */
+  --color-brand: var(--text-text-highlight);
+
+  /* Ticker infini : la piste contient 2 copies, -50% = exactement une copie. */
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root, .dark {
+  --background-bg-action: #0048e4;
+  --border-border-light: #ffffff;
+  --background-bg-logo: #ffffff;
+  --text-text-logo: #ffffff;
+  --text-text-navitem-active: #e5edfc;
+  --background-bg-nav-item: #2c2c2c;
+  --text-text-secondary: #d4d4d4;
+  --background-bg-card: #222222;
+  --border-border-thin: #333333;
+  --icon-icon-btn-secondary: #fafafa;
+  --icon-icon-available: #20ba15;
+  --border-border-available-pill: #20ba1533;
+  --text-text-pill-available: #20ba15;
+  --background-bg-pill-available: #2c2c2c;
+  --background-bg-page: #1e1e1e;
+  --text-text-highlight: #0048e4;
+  --text-text-default: #ffffff;
+  --text-text-on-action: #ffffff;
+  --border-border-brand-btn: #4d7fec;
+  --icon-icon-default: #ffffff;
+  --background-bg-action-secondary: #2c2c2c;
+  --background-bg-brand-pill: #2c2c2c;
+  --text-text-pill-primary: #e5edfc;
+  --background-bg-yellow-pill: #e4a000;
+  --text-text-pill-quartery: #f6efff;
+  --background-bg-purple-pill: #a259ff;
+  --primary-400: #1A5AE7;
+  --background-bg-blue-pill: #0048e4;
+  --border-border-brand-pill: #1a5ae7;
+  --background-bg-pill-lighter: #2c2c2c;
+  --icon-icon-link: #fafafa;
+  --border-border-brand-pill-lighter: #b2c8f7;
+  --text-text-pill-secondary: #fff8e8;
+  --border-border-yellow-pill-lighter: #ffe9b7;
+  --text-text-pill-tertiary: #e6f8ff;
+  --background-bg-cyan-pill: #1abcfe;
+  --border-border-cyan-pill-lighter: #c6eeff;
+  --border-border-purple-pill-lighter: #dabcff;
+  --icon-icon-btn-primary: #ffffff;
+}
+
+.light {
+  --background-bg-action: #0048e4;
+  --border-border-light: #ffffff;
+  --background-bg-logo: #ffffff;
+  --text-text-logo: #0048e4;
+  --text-text-navitem-active: #0048e4;
+  --background-bg-nav-item: #e5edfc;
+  --text-text-secondary: #737373;
+  --background-bg-card: #ffffff;
+  --border-border-thin: #e5e5e5;
+  --icon-icon-btn-secondary: #525252;
+  --icon-icon-available: #20ba15;
+  --border-border-available-pill: #20ba1533;
+  --text-text-pill-available: #20ba15;
+  --background-bg-pill-available: #ffffff;
+  --background-bg-page: #fafafa;
+  --text-text-highlight: #0048e4;
+  --text-text-default: #000032;
+  --text-text-on-action: #ffffff;
+  --border-border-brand-btn: #1a5ae7;
+  --icon-icon-default: #000032;
+  --background-bg-action-secondary: #ffffff;
+  --background-bg-brand-pill: #e5edfc;
+  --text-text-pill-primary: #0048e4;
+  --background-bg-blue-pill: #e5edfc;
+  --border-border-brand-pill: #80a3f1;
+  --background-bg-pill-lighter: #e5e5e533;
+  --icon-icon-link: #b2c8f7;
+  --border-border-brand-pill-lighter: #b2c8f7;
+  --text-text-pill-secondary: #e4a000;
+  --background-bg-yellow-pill: #fff8e8;
+  --text-text-pill-quartery: #a259ff;
+  --background-bg-purple-pill: #f6efff;
+  --primary-400: #1A5AE7;
+  --text-text-pill-tertiary: #1abcfe;
+  --background-bg-cyan-pill: #e6f8ff;
+  --border-border-cyan-pill-lighter: #c6eeff;
+  --border-border-purple-pill-lighter: #dabcff;
+  --icon-icon-btn-primary: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-bg-page);
+  color: var(--text-text-default);
+  font-family: var(--font-satoshi);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Cursor support */
+@media (pointer: fine) {
+  body.cursor-hover {
+    cursor: none;
+  }
+}
+
+/* Background FX — 48x48 cross-line grid faded out by a radial mask */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border-border-thin) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-border-thin) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 0%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 0%, transparent 100%);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(var(--background-bg-card-rgb, 255, 255, 255), 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 1. Animation H1 (LCP) : Entrée instantanée à 0ms, sans flou bloquant */
+@keyframes heroTitleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-title {
+  /* Pas d'opacity: 0 au repos, démarré immédiatement */
+  animation: heroTitleFade 0.35s ease-out forwards;
+}
+
+/* 2. Animation pour le reste (surtitre, description, boutons) : conserve le flou et le délai */
+@keyframes heroItemFade {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.animate-hero-item {
+  opacity: 0;
+  animation: heroItemFade 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
