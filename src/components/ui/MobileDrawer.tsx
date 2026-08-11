@@ -16,36 +16,36 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop (assombrissement léger de l'arrière-plan) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60]"
           />
 
-          {/* Drawer */}
+          {/* Drawer : fond aligné sur Dark-800 (bg-bg-page / #1e1e1e) */}
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 z-[100] w-[80%] max-w-xs sm:max-w-sm bg-bg-card p-6 sm:p-8 flex flex-col shadow-2xl border-l border-border-thin"
+            className="fixed top-0 right-0 bottom-0 z-[100] w-[80%] max-w-xs sm:max-w-sm bg-bg-page/95 backdrop-blur-xl p-6 sm:p-8 flex flex-col shadow-2xl border-l border-border-thin"
           >
             {/* Bouton fermer */}
             <div className="flex justify-end mb-8">
               <button
                 onClick={onClose}
                 className="p-1.5 text-text-secondary hover:text-text-default cursor-pointer transition-colors"
-                aria-label="Close menu"
+                aria-label="Fermer le menu"
               >
                 <X size={24} />
               </button>
             </div>
 
-            {/* Navigation */}
-            <nav className="flex flex-col gap-6">
+            {/* Navigation : passage en text-lg pour une taille plus contenue */}
+            <nav className="flex flex-col gap-5">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -56,7 +56,7 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
                   <Link
                     href={item.href}
                     onClick={onClose}
-                    className="text-xl font-bold text-text-default hover:text-text-highlight transition-colors"
+                    className="text-lg font-bold tracking-tight text-text-default hover:text-text-highlight transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -66,12 +66,13 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
 
             {/* Footer Contact */}
             <div className="mt-auto pt-6 border-t border-border-thin">
-              <p className="text-xs text-text-secondary font-mono tracking-widest uppercase mb-3">
+              <p className="text-xs text-text-secondary font-mono tracking-widest uppercase mb-2">
                 Me contacter
               </p>
               <a
                 href="mailto:motion@maximelussiana.fr"
-                className="text-base font-bold text-text-default hover:text-text-highlight transition-colors break-words"
+                className="block text-sm font-bold text-text-default hover:text-text-highlight transition-colors truncate"
+                title="motion@maximelussiana.fr"
               >
                 motion@maximelussiana.fr
               </a>
