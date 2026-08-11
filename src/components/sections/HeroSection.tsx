@@ -138,7 +138,7 @@ export function HeroSection() {
         className="pointer-events-none absolute right-[5%] top-[15%] -z-10 hidden h-[450px] w-[450px] rounded-full blur-[80px] xl:block"
       />
 
-      <Container className="relative flex flex-col justify-start lg:justify-center gap-6 pb-16 pt-28 sm:pt-32 md:pb-20 md:pt-[160px] lg:min-h-[818px] lg:pb-24 lg:pt-[191px]">
+<Container className="relative flex flex-col justify-start gap-6 pb-16 pt-40 sm:pt-44 md:pb-20 md:pt-[160px] lg:min-h-[818px] lg:justify-center lg:pb-24 lg:pt-[191px]">
         <div className="flex flex-col gap-6">
           
           <p
