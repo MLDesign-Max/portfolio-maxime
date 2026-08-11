@@ -46,6 +46,7 @@
   --color-icon-default: var(--icon-icon-default);
   --color-icon-available: var(--icon-icon-available);
   --color-icon-link: var(--icon-icon-link);
+  --color-icon-modal: var(--icon-icon-modal);
 
   --color-primary-400: var(--primary-400);
 
