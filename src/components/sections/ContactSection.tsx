@@ -3,11 +3,12 @@
 import { sendContactEmail } from "../../app/actions/contact";
 import * as React from "react";
 import { useState } from "react";
-import { Check } from "lucide-react";
+import { CheckCheck, Calendar, ArrowUp } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import { Container } from "../ui/Container";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/maxime-lussiana/";
+const BOOKING_URL = "https://calendar.app.google/vZDDFJJaktzNcdMp7";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -169,7 +170,7 @@ export function ContactSection() {
                 </motion.div>
               </motion.div>
 
-              {/* Colonne Droite : Formulaire */}
+              {/* Colonne Droite : Formulaire ou Succès */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -179,22 +180,62 @@ export function ContactSection() {
               >
                 <div className="rounded-2xl border border-border-thin bg-bg-card/80 p-6 md:p-8 backdrop-blur-md shadow-xl transition-colors duration-300">
                   {status === "success" ? (
-                    <div className="flex flex-col items-center justify-center py-12 text-center">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-                        <Check size={20} />
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.96 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
+                      className="flex min-h-[420px] flex-col items-center justify-center py-8 text-center"
+                    >
+                      {/* Icône CheckCheck */}
+                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border-thin bg-bg-card text-icon-modal shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+                        <CheckCheck size={28} />
                       </div>
-                      <h3 className="text-xl font-bold text-text-default">Message envoyé !</h3>
-                      <p className="mt-2 text-sm text-text-secondary">
-                        Merci pour votre message. Je vous répondrai sous 24h à 48h.
+
+                      {/* Titre */}
+                      <h3 className="text-2xl font-black tracking-tight text-text-default md:text-3xl">
+                        Message bien reçu !
+                      </h3>
+
+                      {/* Paragraphe principal */}
+                      <p className="mt-4 max-w-[280px] md:max-w-md text-base font-medium leading-[1.6] text-text-secondary md:text-[17px]">
+                        Merci pour votre message. Je prends connaissance de vos éléments et je vous fais un retour sous 24h à 48h.
                       </p>
-                      <button
-                        type="button"
-                        onClick={() => setStatus("idle")}
-                        className="mt-6 text-xs font-mono text-text-highlight underline underline-offset-4 cursor-pointer"
-                      >
-                        Envoyer un autre message
-                      </button>
-                    </div>
+
+                      {/* Bloc d'action immédiate : Prise de RDV */}
+                      <div className="mt-10 flex flex-col items-center gap-5 w-full max-w-sm">
+                        <a
+                          href={BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative overflow-hidden flex w-full items-center justify-center gap-2 rounded-full bg-[#0048e4] px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(0,72,228,0.4)]"
+                        >
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 origin-left scale-x-0 bg-[#1258f6] transition-transform duration-300 ease-out group-hover:scale-x-100"
+                          />
+                          <span className="relative z-10 flex items-center gap-2 font-mono">
+                            <Calendar size={16} />
+                            <span>Planifier un appel (30 min)</span>
+                            <span
+                              aria-hidden
+                              className="font-sans text-lg leading-none transition-transform duration-300 group-hover:translate-x-1"
+                            >
+                              →
+                            </span>
+                          </span>
+                        </a>
+
+                        {/* Bouton discret pour remonter en haut du site */}
+                        <button
+                          type="button"
+                          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                          className="flex items-center gap-1.5 text-xs font-mono font-medium text-text-secondary hover:text-text-default transition-colors duration-200 cursor-pointer"
+                        >
+                          <ArrowUp size={14} />
+                          <span>Retourner en haut de page</span>
+                        </button>
+                      </div>
+                    </motion.div>
                   ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                       
