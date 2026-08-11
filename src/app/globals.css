@@ -106,6 +106,7 @@
   --border-border-cyan-pill-lighter: #c6eeff;
   --border-border-purple-pill-lighter: #dabcff;
   --icon-icon-btn-primary: #ffffff;
+  --icon-icon-modal: #0048e4;
 }
 
 .light {
@@ -148,6 +149,7 @@
   --border-border-cyan-pill-lighter: #c6eeff;
   --border-border-purple-pill-lighter: #dabcff;
   --icon-icon-btn-primary: #ffffff;
+  --icon-icon-modal: #0048e4;
 }
 
 html {

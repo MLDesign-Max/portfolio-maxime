@@ -187,7 +187,7 @@ export function ContactSection() {
                       className="flex min-h-[420px] flex-col items-center justify-center py-8 text-center"
                     >
                       {/* Icône CheckCheck */}
-                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border-thin bg-bg-card text-[var(--icon-icon-modal)] shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border-thin bg-bg-card text-icon-modal shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
                         <CheckCheck size={28} />
                       </div>
 
@@ -266,7 +266,7 @@ export function ContactSection() {
                             placeholder="Nom complet"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full rounded-xl border border-border-thin bg-bg-page px-4 py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+                            className="w-full rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
                           />
                         </div>
 
@@ -281,7 +281,7 @@ export function ContactSection() {
                             placeholder="email@entreprise.com"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full rounded-xl border border-border-thin bg-bg-page px-4 py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+                            className="w-full rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
                           />
                         </div>
                       </div>
@@ -297,7 +297,7 @@ export function ContactSection() {
                             required
                             value={formData.type}
                             onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                            className="w-full appearance-none rounded-xl border border-border-thin bg-bg-page px-4 py-3 text-sm text-text-default outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4] cursor-pointer"
+                            className="w-full appearance-none rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4] cursor-pointer"
                           >
                             <option value="" disabled className="bg-bg-card text-text-default">
                               Sélectionnez une option
@@ -326,7 +326,7 @@ export function ContactSection() {
                           placeholder="Décrivez brièvement votre projet, vos objectifs, vos délais..."
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full resize-none rounded-xl border border-border-thin bg-bg-page px-4 py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+                          className="w-full resize-none rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
                         />
                       </div>
 
