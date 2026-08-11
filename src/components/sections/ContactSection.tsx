@@ -82,7 +82,7 @@ export function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative isolate overflow-hidden rounded-[32px] border border-border-thin bg-bg-card px-6 py-12 shadow-[0px_2px_36px_0px_rgba(0,72,228,0.08)] md:px-12 md:py-16 xl:px-14 xl:py-20"
+            className="relative isolate overflow-hidden rounded-[24px] sm:rounded-[32px] border border-border-thin bg-bg-card px-4 py-8 shadow-[0px_2px_36px_0px_rgba(0,72,228,0.08)] sm:px-6 md:px-12 md:py-16 xl:px-14 xl:py-20"
           >
             {/* Grille de fond */}
             <div
@@ -150,18 +150,18 @@ export function ContactSection() {
                 </motion.p>
 
                 {/* Bouton LinkedIn */}
-                <motion.div variants={itemVariants}>
+                <motion.div variants={itemVariants} className="w-full sm:w-auto">
                   <a
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center rounded-full border border-border-thin bg-bg-action-secondary px-6 py-3 text-text-default transition-all duration-300 hover:-translate-y-0.5 hover:border-border-thin/80"
+                    className="group flex w-full sm:w-auto items-center justify-center rounded-full border border-border-thin bg-bg-action-secondary px-4 py-3 text-text-default transition-all duration-300 hover:-translate-y-0.5 hover:border-border-thin/80 sm:px-6"
                   >
-                    <span className="font-mono text-sm font-bold leading-[1.2] flex items-center gap-2">
+                    <span className="font-mono text-xs sm:text-sm font-bold leading-[1.2] flex items-center gap-2 whitespace-nowrap">
                       <span>Me contacter sur LinkedIn</span>
                       <span
                         aria-hidden
-                        className="font-sans text-lg leading-none transition-transform duration-300 group-hover:translate-x-1"
+                        className="font-sans text-base sm:text-lg leading-none transition-transform duration-300 group-hover:translate-x-1"
                       >
                         →
                       </span>
@@ -178,7 +178,7 @@ export function ContactSection() {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="xl:col-span-6"
               >
-                <div className="rounded-2xl border border-border-thin bg-bg-card/80 p-6 md:p-8 backdrop-blur-md shadow-xl transition-colors duration-300">
+                <div className="rounded-2xl border border-border-thin bg-bg-card/80 p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-xl transition-colors duration-300">
                   {status === "success" ? (
                     <motion.div 
                       initial={{ opacity: 0, scale: 0.96 }}
@@ -187,7 +187,7 @@ export function ContactSection() {
                       className="flex min-h-[420px] flex-col items-center justify-center py-8 text-center"
                     >
                       {/* Icône CheckCheck */}
-                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border-thin bg-bg-card text-icon-modal shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+                      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-border-thin bg-bg-card text-[var(--icon-icon-modal)] shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
                         <CheckCheck size={28} />
                       </div>
 
