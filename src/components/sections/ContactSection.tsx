@@ -39,18 +39,27 @@ export function ContactSection() {
     email: "",
     type: "",
     message: "",
+    website: "", // Champ Honeypot (piège à robots)
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Verification du format email cote client
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Veuillez saisir une adresse email valide.");
+      return;
+    }
+
     setStatus("loading");
 
     const result = await sendContactEmail(formData);
 
     if (result.success) {
       setStatus("success");
-      setFormData({ name: "", email: "", type: "", message: "" });
+      setFormData({ name: "", email: "", type: "", message: "", website: "" });
     } else {
       setStatus("idle");
       alert(result.error || "Une erreur est survenue lors de l'envoi.");
@@ -61,7 +70,7 @@ export function ContactSection() {
     <>
       <section id="contact" className="relative isolate bg-bg-page py-24 md:py-32 lg:py-36 transition-colors duration-300">
         <Container className="relative">
-          {/* Halo externe : jaillit au-dessus de la carte sans être coupé par overflow-hidden */}
+          {/* Halo externe */}
           <div
             aria-hidden
             className="pointer-events-none absolute left-1/2 -top-[100px] -z-10 h-[260px] w-[80%] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0048e4] to-[#a259ff] opacity-12 dark:opacity-40 blur-[110px]"
@@ -80,8 +89,8 @@ export function ContactSection() {
               className="bg-grid pointer-events-none absolute inset-0"
             />
 
-           {/* Ligne néon supérieure + Ambiance interne */}
-           <div
+            {/* Ligne néon supérieure + Ambiance interne */}
+            <div
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-0 h-[1px] w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#a259ff]/30 dark:via-[#a259ff] to-transparent z-10"
             />
@@ -129,7 +138,7 @@ export function ContactSection() {
                   </span>
                 </motion.h2>
 
-                {/* Paragraphe pleine largeur de colonne avec saut à la ligne */}
+                {/* Paragraphe */}
                 <motion.p
                   variants={itemVariants}
                   className="w-full text-base leading-[1.5] font-medium text-text-secondary md:text-[17px]"
@@ -139,7 +148,7 @@ export function ContactSection() {
                   Remplissez le formulaire ci-contre ou contactez-moi directement sur LinkedIn pour échanger sur votre projet.
                 </motion.p>
 
-                {/* Bouton LinkedIn aligné à gauche */}
+                {/* Bouton LinkedIn */}
                 <motion.div variants={itemVariants}>
                   <a
                     href={LINKEDIN_URL}
@@ -188,6 +197,21 @@ export function ContactSection() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                      
+                      {/* CHAMP HONEYPOT (Invisible pour les humains, rempli par les bots) */}
+                      <div className="sr-only aria-hidden:true hidden" aria-hidden="true">
+                        <label htmlFor="website">Ne pas remplir ce champ</label>
+                        <input
+                          type="text"
+                          id="website"
+                          name="website"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          value={formData.website}
+                          onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                        />
+                      </div>
+
                       {/* Ligne 1 : Nom complet & Email */}
                       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                         <div className="flex flex-col gap-2">
@@ -265,7 +289,7 @@ export function ContactSection() {
                         />
                       </div>
 
-                      {/* Bouton d'envoi rond */}
+                      {/* Bouton d'envoi */}
                       <button
                         type="submit"
                         disabled={status === "loading"}

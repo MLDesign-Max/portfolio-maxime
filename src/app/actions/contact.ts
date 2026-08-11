@@ -9,17 +9,32 @@ interface ContactFormData {
   email: string;
   type: string;
   message: string;
+  website?: string; // Champ Honeypot
 }
 
 export async function sendContactEmail(data: ContactFormData) {
-  const { name, email, type, message } = data;
+  const { name, email, type, message, website } = data;
 
+  // 1. HONEYPOT ANTI-SPAM
+  // Si le champ piège caché est rempli, c'est un robot.
+  // On renvoie "success: true" pour duper le robot sans exécuter le reste.
+  if (website && website.trim() !== '') {
+    return { success: true };
+  }
+
+  // 2. VALIDATION DES CHAMPS OBLIGATOIRES
   if (!name || !email || !message) {
     return { success: false, error: 'Veuillez remplir tous les champs obligatoires.' };
   }
 
+  // 3. VALIDATION DU FORMAT EMAIL (REGEX)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return { success: false, error: 'L\'adresse email fournie n\'est pas valide.' };
+  }
+
   try {
-    // 1. EMAIL NOTIFICATION ADMIN (Pour toi)
+    // 1. EMAIL NOTIFICATION ADMIN
     const adminEmail = resend.emails.send({
       from: 'Maxime Lussiana <contact@maximelussiana.fr>',
       to: 'motion@maximelussiana.fr',
@@ -43,10 +58,8 @@ export async function sendContactEmail(data: ContactFormData) {
             
             <div style="max-width: 580px; margin: 0 auto; background-color: #222222; border: 1px solid #333333; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
               
-              <!-- Halo néon doux centré -->
-              <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #a259ff 35%, #0048e4 65%, transparent 100%); width: 100%; opacity: 0.8;"></div>
+              <div style="height: 2px; background: linear-gradient(90deg, #0048e4 0%, #a259ff 100%); width: 100%;"></div>
 
-              <!-- En-tête -->
               <div class="padding-box" style="padding: 32px 32px 24px 32px;">
                 <table style="width: 100%; border-collapse: collapse;">
                   <tr>
@@ -75,7 +88,6 @@ export async function sendContactEmail(data: ContactFormData) {
 
               <div style="height: 1px; background-color: #333333; margin: 0 24px;"></div>
 
-              <!-- Fiche info -->
               <div class="padding-box" style="padding: 24px 32px;">
                 <table style="width: 100%; border-collapse: collapse;">
                   <tr>
@@ -95,7 +107,6 @@ export async function sendContactEmail(data: ContactFormData) {
                 </table>
               </div>
 
-              <!-- Message -->
               <div class="padding-box" style="padding: 0 32px 32px 32px;">
                 <p style="font-family: monospace; color: #888888; font-size: 11px; font-weight: 600; text-transform: uppercase; margin: 0 0 12px 0;">MESSAGE</p>
                 <div style="background-color: #181818; border: 1px solid #333333; border-radius: 16px; padding: 20px; color: #e4e4e7; font-size: 14px; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">${message}</div>
@@ -134,40 +145,34 @@ export async function sendContactEmail(data: ContactFormData) {
             
             <div style="max-width: 540px; margin: 0 auto; background-color: #222222; border: 1px solid #333333; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); text-align: center;">
               
-              <!-- Halo néon doux centré -->
-              <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #0048e4 35%, #a259ff 65%, transparent 100%); width: 100%; opacity: 0.8;"></div>
+              <div style="height: 2px; background: linear-gradient(90deg, #0048e4 0%, #a259ff 100%); width: 100%;"></div>
 
               <div class="padding-box" style="padding: 48px 36px 40px 36px;">
                 
-                <!-- Visuel 3D -->
                 <div style="margin-bottom: 32px;">
                   <img 
                     src="https://www.maximelussiana.fr/assets/success-icon.png" 
                     alt="Confirmation" 
                     width="96" 
-                    style="display: inline-block; border: 0; max-width: 96px; height: auto; drop-shadow: 0 10px 20px rgba(0,0,0,0.3);" 
+                    style="display: inline-block; border: 0; max-width: 96px; height: auto;" 
                   />
                 </div>
 
-                <!-- Badge -->
                 <div style="margin-bottom: 24px;">
                   <span style="font-family: monospace; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; color: #a259ff; background: rgba(162, 89, 255, 0.1); border: 1px solid rgba(162, 89, 255, 0.25); padding: 6px 14px; border-radius: 9999px; text-transform: uppercase;">
                     ✓ MESSAGE TRANSMIS
                   </span>
                 </div>
 
-                <!-- Titre -->
                 <h1 style="color: #ffffff; font-size: 24px; font-weight: 900; margin: 0 0 16px 0; letter-spacing: -0.5px; line-height: 1.2;">
                   Merci ${name}, <br />
                   <span style="color: #3b82f6; font-style: italic; font-weight: 700;">votre demande est enregistrée.</span>
                 </h1>
 
-                <!-- Paragraphe -->
                 <p style="color: #a1a1aa; font-size: 14px; line-height: 1.6; margin: 0 0 32px 0; font-weight: 400;">
                   J&apos;ai bien reçu votre message concernant votre besoin en <strong style="color: #ffffff;">${type || 'Design'}</strong>. Je prends connaissance de vos éléments et je vous recontacte sous 24h à 48h.
                 </p>
 
-                <!-- Récap message -->
                 <div style="background-color: #181818; border: 1px solid #333333; border-radius: 18px; padding: 20px; text-align: left;">
                   <p style="font-family: monospace; color: #888888; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 10px 0;">
                     RÉCAPITULATIF DE VOTRE MESSAGE
