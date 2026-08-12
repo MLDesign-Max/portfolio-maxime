@@ -188,6 +188,16 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Fix de performance Safari / WebKit pour les filtres de flou */
+[class*="blur-"],
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
 /* 1. Animation H1 (LCP) : Entrée instantanée à 0ms, sans flou bloquant */
 @keyframes heroTitleFade {
   0% {
