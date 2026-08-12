@@ -241,7 +241,7 @@ export function ContactSection() {
                       
                       {/* CHAMP HONEYPOT (Invisible pour les humains, rempli par les bots) */}
                       <div className="sr-only aria-hidden:true hidden" aria-hidden="true">
-                        <label htmlFor="website">Ne pas remplir ce champ</label>
+                        <label htmlFor="website">Site web</label>
                         <input
                           type="text"
                           id="website"
