@@ -5,6 +5,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "../components/ui/ThemeProvider";
 import { CustomCursor } from "../components/ui/CustomCursor";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -130,6 +131,7 @@ export default function RootLayout({
           <CustomCursor />
           {children}
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
