@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
@@ -39,9 +40,71 @@ const satoshi = localFont({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Maxime Lussiana — UX/UI & Motion Designer",
-  description: "Portfolio de Maxime Lussiana",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://maximelussiana.fr"),
+  title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+  description:
+    "Je conçois des interfaces UX/UI, des Design Systems et des animations Motion Design pour vos produits web et contenus visuels. De la structure jusqu'au mouvement.",
+  authors: [{ name: "Maxime Lussiana" }],
+  keywords: [
+    "UX UI Designer",
+    "Motion Designer",
+    "Design System",
+    "Freelance",
+    "Paris",
+    "After Effects",
+    "Lottie",
+  ],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
+  },
+  openGraph: {
+    title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+    description:
+      "Interfaces UX/UI, Design Systems & Motion Design. De la structure jusqu'au mouvement.",
+    url: "https://maximelussiana.fr",
+    siteName: "Maxime Lussiana",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+    description:
+      "Interfaces UX/UI, Design Systems & Motion Design. De la structure jusqu'au mouvement.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Maxime Lussiana",
+  url: "https://maximelussiana.fr",
+  image: "https://maximelussiana.fr/og-image.png",
+  jobTitle: "UX/UI & Motion Designer Freelance",
+  sameAs: ["https://www.linkedin.com/in/maxime-lussiana/"],
 };
 
 export default function RootLayout({
@@ -55,6 +118,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${jetbrainsMono.variable} ${satoshi.variable} scroll-smooth`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-bg-page text-text-default font-satoshi antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <CustomCursor />
