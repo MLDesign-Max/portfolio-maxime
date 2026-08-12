@@ -16,6 +16,8 @@ export async function sendContactEmail(data: ContactFormData) {
   const { name, email, type, message, website } = data;
 
   // 1. HONEYPOT ANTI-SPAM
+  // Si le champ piège caché est rempli, c'est un robot.
+  // On renvoie "success: true" pour duper le robot sans exécuter le reste.
   if (website && website.trim() !== '') {
     return { success: true };
   }
@@ -56,7 +58,7 @@ export async function sendContactEmail(data: ContactFormData) {
             
             <div style="max-width: 580px; margin: 0 auto; background-color: #222222; border: 1px solid #333333; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
               
-              <div style="height: 2px; background: linear-gradient(90deg, #0048e4 0%, #a259ff 100%); width: 100%; border-radius: 28px 28px 0 0;"></div>
+              <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #0048e4 20%, #a259ff 80%, transparent 100%); width: 100%;"></div>
 
               <div class="padding-box" style="padding: 32px 32px 24px 32px;">
                 <table style="width: 100%; border-collapse: collapse;">
@@ -143,7 +145,7 @@ export async function sendContactEmail(data: ContactFormData) {
             
             <div style="max-width: 540px; margin: 0 auto; background-color: #222222; border: 1px solid #333333; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); text-align: center;">
               
-              <div style="height: 2px; background: linear-gradient(90deg, #0048e4 0%, #a259ff 100%); width: 100%; border-radius: 28px 28px 0 0;"></div>
+              <div style="height: 2px; background: linear-gradient(90deg, transparent 0%, #0048e4 20%, #a259ff 80%, transparent 100%); width: 100%;"></div>
 
               <div class="padding-box" style="padding: 48px 36px 40px 36px;">
                 
