@@ -37,7 +37,7 @@ export async function sendContactEmail(data: ContactFormData) {
     // 1. EMAIL NOTIFICATION ADMIN
     const adminEmail = resend.emails.send({
       from: 'Maxime Lussiana <contact@maximelussiana.fr>',
-      to: 'motion@maximelussiana.fr',
+      to: 'contact@maximelussiana.fr',
       replyTo: email,
       subject: `⚡ Nouveau projet : ${name} (${type || 'Contact'})`,
       html: `
