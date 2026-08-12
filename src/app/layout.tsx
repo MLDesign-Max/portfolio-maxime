@@ -65,12 +65,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
     description:
-      "Interfaces UX/UI, Design Systems & Motion Design. De la structure jusqu'au mouvement.",
+      "Interfaces UX/UI, Design Systems et Motion Design. De la structure jusqu'au mouvement.",
     url: "https://maximelussiana.fr",
     siteName: "Maxime Lussiana",
     images: [
       {
-        url: "/og-image.png?v=2", 
+        url: "/og-image.jpg?v=3",
         width: 1200,
         height: 630,
         alt: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
@@ -83,8 +83,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
     description:
-      "Interfaces UX/UI, Design Systems & Motion Design. De la structure jusqu'au mouvement.",
-    images: ["/og-image.png?v=2"], 
+      "Interfaces UX/UI, Design Systems et Motion Design. De la structure jusqu'au mouvement.",
+    images: ["/og-image.jpg?v=3"],
   },
   robots: {
     index: true,
