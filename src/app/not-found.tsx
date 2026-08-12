@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
 
-// Métadonnées pour la page 404
 export const metadata: Metadata = {
   title: "404 — Page introuvable | Maxime Lussiana",
   description: "La page que vous recherchez n'existe pas ou a été déplacée.",
@@ -9,45 +8,54 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-[#0d0f12] text-white px-6 text-center relative overflow-hidden">
-      
-      {/* Grille de points radiale subtile (rappel démo précédente) - Sans halo central */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(#ffffff 1px, transparent 1px)`,
-          backgroundSize: `24px 24px`,
-        }}
-      />
-      
-      {/* Discret dégradé de bleu en haut (côté "dégradé" sans halo central) */}
-      <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none opacity-40" 
+    <main className="relative min-h-screen flex flex-col items-center justify-center bg-bg-page text-text-default px-6 text-center overflow-hidden isolate">
+      {/* Grille de fond du site */}
+      <div
+        aria-hidden
+        className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60"
       />
 
-      <div className="relative z-10 max-w-lg space-y-10">
-        {/* Gros titre 404 en police mono */}
-        <h1 className="text-[12rem] sm:text-[14rem] font-extrabold tracking-tighter text-white font-mono leading-none">
+      {/* Halo de profondeur */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0048e4] opacity-10 blur-[100px]"
+      />
+
+      <div className="relative z-10 max-w-lg space-y-8">
+        {/* 404 en JetBrains Mono */}
+        <h1 className="text-[10rem] sm:text-[12rem] font-bold tracking-tighter text-text-default font-mono leading-none select-none">
           404
         </h1>
 
-        {/* Message d'erreur simple, harmonisé avec l'identité de Maxime */}
-        <div className="space-y-4">
-          <p className="text-xl sm:text-2xl font-normal text-white">
-            Oups, <span className="text-blue-500">hors cadre.</span>
-          </p>
-          <p className="text-base sm:text-lg font-normal leading-relaxed text-neutral-400">
-            La page que vous recherchez n'existe pas, a été déplacée ou n'est plus en mouvement. Ne vous inquiétez pas, <span className="text-white">retrouvons la structure.</span>
+        {/* Textes Proposition 1 */}
+        <div className="space-y-3">
+          <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-text-default">
+            Page introuvable.
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-[#D4D4D4] max-w-md mx-auto">
+            La page que vous recherchez n'existe pas ou a été déplacée.
           </p>
         </div>
 
-        {/* Bouton de retour à l'accueil */}
-        <div className="pt-6">
+        {/* Bouton CTA harmonisé */}
+        <div className="pt-4">
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-10 py-4 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full transition-colors duration-200 shadow-xl shadow-blue-600/30"
+            className="group relative overflow-hidden inline-flex items-center justify-center gap-2 rounded-full bg-[#0048e4] px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(0,72,228,0.4)]"
           >
-            Retourner à l'accueil
+            <span
+              aria-hidden
+              className="absolute inset-0 origin-left scale-x-0 bg-[#1258f6] transition-transform duration-300 ease-out group-hover:scale-x-100"
+            />
+            <span className="relative z-10 flex items-center gap-2 font-mono">
+              <span>Retourner sur le site</span>
+              <span
+                aria-hidden
+                className="font-sans text-lg leading-none transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </span>
           </Link>
         </div>
       </div>
