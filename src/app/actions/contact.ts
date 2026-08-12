@@ -16,8 +16,6 @@ export async function sendContactEmail(data: ContactFormData) {
   const { name, email, type, message, website } = data;
 
   // 1. HONEYPOT ANTI-SPAM
-  // Si le champ piège caché est rempli, c'est un robot.
-  // On renvoie "success: true" pour duper le robot sans exécuter le reste.
   if (website && website.trim() !== '') {
     return { success: true };
   }
@@ -128,7 +126,7 @@ export async function sendContactEmail(data: ContactFormData) {
     const clientEmail = resend.emails.send({
       from: 'Maxime Lussiana <contact@maximelussiana.fr>',
       to: email,
-      subject: `Message bien reçu ! — Maxime Lussiana`,
+      subject: `Merci ${name}, votre message est bien arrivé !`,
       html: `
         <!DOCTYPE html>
         <html lang="fr">
