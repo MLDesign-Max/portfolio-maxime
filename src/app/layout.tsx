@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "Maxime Lussiana",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.png?v=2", 
         width: 1200,
         height: 630,
         alt: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
     description:
       "Interfaces UX/UI, Design Systems & Motion Design. De la structure jusqu'au mouvement.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=2"], 
   },
   robots: {
     index: true,
