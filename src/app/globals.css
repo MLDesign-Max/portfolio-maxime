@@ -84,7 +84,7 @@
   --text-text-pill-available: #20ba15;
   --background-bg-pill-available: #2c2c2c;
   --background-bg-page: #1e1e1e;
-  --background-bg-banner: #181818; /* Dark-500 pour le mode sombre */
+  --background-bg-banner: #181818;
   --text-text-highlight: #0048e4;
   --text-text-default: #ffffff;
   --text-text-on-action: #ffffff;
@@ -92,7 +92,7 @@
   --icon-icon-default: #ffffff;
   --background-bg-action-secondary: #2c2c2c;
   --background-bg-brand-pill: #2c2c2c;
-  --text-text-pill-primary: #e5edfc;
+  --text-text-pill-primary: #5b8fff; /* Bleu électrique accessible (4.53:1 WCAG AA) */
   --background-bg-yellow-pill: #2c2c2c;
   --text-text-pill-quartery: #a259ff;
   --background-bg-purple-pill: #2c2c2c;
@@ -104,7 +104,7 @@
   --border-border-brand-pill-lighter: #b2c8f7;
   --text-text-pill-secondary: #e4a000;
   --border-border-yellow-pill-lighter: #ffe9b7;
-  --text-text-pill-tertiary: #e6f8ff;
+  --text-text-pill-tertiary: #1abcfe;
   --background-bg-cyan-pill: #2c2c2c;
   --border-border-cyan-pill-lighter: #c6eeff;
   --border-border-purple-pill-lighter: #dabcff;
@@ -130,7 +130,7 @@
   --text-text-pill-available: #20ba15;
   --background-bg-pill-available: #ffffff;
   --background-bg-page: #fafafa;
-  --background-bg-banner: #ffffff; /* #FFFFFF pour le mode clair */
+  --background-bg-banner: #ffffff;
   --text-text-highlight: #0048e4;
   --text-text-default: #000032;
   --text-text-on-action: #ffffff;
@@ -204,7 +204,7 @@ body {
   backface-visibility: hidden;
 }
 
-/* 1. Animation H1 (LCP) : Entrée instantanée à 0ms, sans flou bloquant */
+/* 1. Animation H1 (LCP) */
 @keyframes heroTitleFade {
   0% {
     opacity: 0;
@@ -217,11 +217,10 @@ body {
 }
 
 .animate-hero-title {
-  /* Pas d'opacity: 0 au repos, démarré immédiatement */
   animation: heroTitleFade 0.35s ease-out forwards;
 }
 
-/* 2. Animation pour le reste (surtitre, description, boutons) : conserve le flou et le délai */
+/* 2. Animation pour le reste */
 @keyframes heroItemFade {
   0% {
     opacity: 0;
