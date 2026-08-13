@@ -21,6 +21,7 @@
   --color-bg-pill-lighter: var(--background-bg-pill-lighter);
   --color-bg-pill-available: var(--background-bg-pill-available);
   --color-bg-banner: var(--background-bg-banner);
+  --color-bg-pill-project-primary: var(--background-bg-pill-project-primary);
 
   --color-text-default: var(--text-text-default);
   --color-text-secondary: var(--text-text-secondary);
@@ -33,6 +34,7 @@
   --color-text-pill-tertiary: var(--text-text-pill-tertiary);
   --color-text-pill-quartery: var(--text-text-pill-quartery);
   --color-text-pill-available: var(--text-text-pill-available);
+  --color-text-pill-project-primary: var(--text-text-pill-project-primary);
 
   --color-border-thin: var(--border-border-thin);
   --color-border-brand-btn: var(--border-border-brand-btn);
@@ -91,23 +93,25 @@
   --background-bg-action-secondary: #2c2c2c;
   --background-bg-brand-pill: #2c2c2c;
   --text-text-pill-primary: #e5edfc;
-  --background-bg-yellow-pill: #e4a000;
-  --text-text-pill-quartery: #f6efff;
-  --background-bg-purple-pill: #a259ff;
+  --background-bg-yellow-pill: #2c2c2c;
+  --text-text-pill-quartery: #a259ff;
+  --background-bg-purple-pill: #2c2c2c;
   --primary-400: #1A5AE7;
-  --background-bg-blue-pill: #0048e4;
+  --background-bg-blue-pill: #2c2c2c;
   --border-border-brand-pill: #1a5ae7;
   --background-bg-pill-lighter: #2c2c2c;
   --icon-icon-link: #fafafa;
   --border-border-brand-pill-lighter: #b2c8f7;
-  --text-text-pill-secondary: #fff8e8;
+  --text-text-pill-secondary: #e4a000;
   --border-border-yellow-pill-lighter: #ffe9b7;
   --text-text-pill-tertiary: #e6f8ff;
-  --background-bg-cyan-pill: #1abcfe;
+  --background-bg-cyan-pill: #2c2c2c;
   --border-border-cyan-pill-lighter: #c6eeff;
   --border-border-purple-pill-lighter: #dabcff;
   --icon-icon-btn-primary: #ffffff;
   --icon-icon-modal: #0048e4;
+  --background-bg-pill-project-primary: #0048e4;
+  --text-text-pill-project-primary: #ffffff;
 }
 
 .light {
@@ -151,6 +155,8 @@
   --border-border-purple-pill-lighter: #dabcff;
   --icon-icon-btn-primary: #ffffff;
   --icon-icon-modal: #0048e4;
+  --background-bg-pill-project-primary: #E5EDFC;
+  --text-text-pill-project-primary: #0048e4;
 }
 
 html {

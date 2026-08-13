@@ -6,10 +6,11 @@ import { ArrowUpRight } from "lucide-react";
 import type { ProjectData } from "../../types/project";
 
 /**
- * Pastille d'accent — réservée au PREMIER tag.
+ * Pastille d'accent — réservée au PREMIER tag (catégorie métier).
+ * Utilise les tokens sémantiques dédiés au projet principal.
  */
 const ACCENT_PILL =
-  "bg-bg-blue-pill border border-border-brand-pill text-text-pill-primary font-bold";
+  "bg-bg-pill-project-primary border border-border-brand-pill text-text-pill-project-primary font-bold";
 
 /** Pastilles 2 et 3 : neutres, jamais colorées par la donnée. */
 const NEUTRAL_PILL =

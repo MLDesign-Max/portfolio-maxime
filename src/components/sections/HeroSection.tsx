@@ -17,7 +17,7 @@ const CAPABILITIES = [
     label: "Design Systems",
     caption: "UI Scalable & Tokenisée",
     Icon: Layers,
-    iconWrapper: "bg-bg-brand-pill text-text-highlight",
+    iconWrapper: "bg-bg-blue-pill text-text-highlight",
     hoverStyles:
       "hover:border-[#0048e4]/60 hover:shadow-[0_0_30px_rgba(0,72,228,0.35)]",
     position: "top-[230px] right-[140px]",
