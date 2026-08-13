@@ -110,7 +110,8 @@ function ExpertiseCard({ expertise }: { expertise: Expertise }) {
   return (
     <motion.article
       variants={itemVariants}
-      className="group flex flex-col overflow-hidden rounded-3xl border border-border-thin bg-bg-card transition-colors duration-300 hover:border-border-brand-btn"
+      /* Changement ici : hover:border-border-brand-card */
+      className="group flex flex-col overflow-hidden rounded-3xl border border-border-thin bg-bg-card transition-colors duration-300 hover:border-border-brand-card"
     >
       <div className="p-4 pb-0">
         <div className="relative aspect-[556/292] w-full overflow-hidden rounded-[10px]">
@@ -224,9 +225,10 @@ export function ExpertisesSection() {
               variants={serviceCardVariants}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="flex flex-col justify-start gap-6 rounded-xl border border-border-thin bg-bg-card p-6 transition-colors duration-300 hover:border-border-brand-btn"
+              /* Changement ici : hover:border-border-brand-card */
+              className="flex flex-col justify-start gap-6 rounded-xl border border-border-thin bg-bg-card p-6 transition-colors duration-300 hover:border-border-brand-card"
             >
-              <span className="flex w-fit items-center justify-center rounded-full bg-bg-brand-pill px-2 py-1.5 font-mono text-[10px] leading-none font-bold uppercase whitespace-nowrap text-text-highlight transition-colors duration-300">
+              <span className="flex w-fit items-center justify-center rounded-full bg-bg-brand-pill px-2 py-1.5 font-mono text-[10px] leading-none font-bold uppercase whitespace-nowrap text-text-pill-primary transition-colors duration-300">
                 {service.label}
               </span>
               <div className="flex flex-col gap-3">

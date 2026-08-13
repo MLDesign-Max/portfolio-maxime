@@ -38,6 +38,7 @@
 
   --color-border-thin: var(--border-border-thin);
   --color-border-brand-btn: var(--border-border-brand-btn);
+  --color-border-brand-card: var(--border-border-brand-card);
   --color-border-brand-pill: var(--border-border-brand-pill);
   --color-border-brand-pill-lighter: var(--border-border-brand-pill-lighter);
   --color-border-purple-pill-lighter: var(--border-border-purple-pill-lighter);
@@ -112,6 +113,7 @@
   --icon-icon-modal: #0048e4;
   --background-bg-pill-project-primary: #0048e4;
   --text-text-pill-project-primary: #ffffff;
+  --border-border-brand-card: #0048e4;
 }
 
 .light {
@@ -157,6 +159,7 @@
   --icon-icon-modal: #0048e4;
   --background-bg-pill-project-primary: #E5EDFC;
   --text-text-pill-project-primary: #0048e4;
+  --border-border-brand-card : #0048e4;
 }
 
 html {

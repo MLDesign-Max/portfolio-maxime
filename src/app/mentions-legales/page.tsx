@@ -40,7 +40,7 @@ export default function MentionsLegales() {
               <li><strong>Nom / Prénom :</strong> Maxime Lussiana</li>
               <li><strong>Statut :</strong> Entrepreneur Individuel (Freelance UX/UI & Motion Designer)</li>
               <li><strong>SIRET :</strong> 880 689 252 00018</li>
-              <li><strong>Email :</strong> motion@maximelussiana.fr</li>
+              <li><strong>Email :</strong> contact@maximelussiana.fr</li>
               <li><strong>Directeur de la publication :</strong> Maxime Lussiana</li>
             </ul>
           </section>
