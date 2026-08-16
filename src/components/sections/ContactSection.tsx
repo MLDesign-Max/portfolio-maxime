@@ -2,9 +2,9 @@
 
 import { sendContactEmail } from "../../app/actions/contact";
 import * as React from "react";
-import { useState } from "react";
-import { CheckCheck, Calendar, ArrowUp } from "lucide-react";
-import { motion, type Variants } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { CheckCheck, Calendar, ArrowUp, ChevronDown, Check } from "lucide-react";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Container } from "../ui/Container";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/maxime-lussiana/";
@@ -34,6 +34,99 @@ const itemVariants: Variants = {
   },
 };
 
+// --- COMPOSANT CUSTOM SELECT (Dropdown stylisé FinTech / Dark mode) ---
+interface CustomSelectProps {
+  value: string;
+  onChange: (value: string) => void;
+  options: string[];
+}
+
+function CustomSelect({ value, onChange, options }: CustomSelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Fermeture au clic extérieur
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative w-full">
+      {/* Input de validation masqué */}
+      <input type="hidden" required value={value} name="type" />
+
+      {/* Champ principal */}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="peer flex h-14 w-full cursor-pointer items-center justify-between rounded-2xl border border-border-thin bg-bg-page px-4 pb-2 pt-5 text-left text-sm font-medium outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+      >
+        <span className={value === "" ? "text-text-secondary/60" : "text-text-default"}>
+          {value || "Sélectionner un type de besoin..."}
+        </span>
+
+        <ChevronDown
+          className={`h-4 w-4 text-text-secondary transition-transform duration-300 ${
+            isOpen ? "rotate-180 text-text-default" : ""
+          }`}
+        />
+      </button>
+
+      {/* Label Flottant */}
+      <label
+        className={`pointer-events-none absolute left-4 top-2 z-10 text-[11px] font-bold transition-colors duration-200 ${
+          isOpen ? "text-[#0048e4]" : "text-text-secondary"
+        }`}
+      >
+        Type de projet
+      </label>
+
+      {/* Menu déroulant sur-mesure */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            animate={{ opacity: 1, y: 6, scale: 1 }}
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-border-thin bg-bg-card p-1.5 shadow-2xl backdrop-blur-xl"
+          >
+            {options.map((option) => {
+              const isSelected = value === option;
+              return (
+                <li key={option}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onChange(option);
+                      setIsOpen(false);
+                    }}
+                    className={`flex w-full cursor-pointer items-center justify-between rounded-xl px-3.5 py-3 text-xs font-semibold transition-colors ${
+                      isSelected
+                        ? "bg-[#0048e4]/10 text-text-pill-primary"
+                        : "text-text-default hover:bg-bg-page"
+                    }`}
+                  >
+                    <span>{option}</span>
+                    {isSelected && <Check className="h-4 w-4 text-text-pill-primary" />}
+                  </button>
+                </li>
+              );
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+// --- SECTION CONTACT PRINCIPALE ---
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -46,6 +139,12 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validation type de besoin
+    if (!formData.type) {
+      alert("Veuillez sélectionner un type de besoin.");
+      return;
+    }
 
     // Verification du format email cote client
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -237,7 +336,7 @@ export function ContactSection() {
                       </div>
                     </motion.div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                       
                       {/* CHAMP HONEYPOT (Invisible pour les humains, rempli par les bots) */}
                       <div className="sr-only aria-hidden:true hidden" aria-hidden="true">
@@ -254,80 +353,74 @@ export function ContactSection() {
                       </div>
 
                       {/* Ligne 1 : Nom complet & Email */}
-                      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                        <div className="flex flex-col gap-2">
-                          <label htmlFor="name" className="text-xs font-bold text-text-default">
-                            Nom complet
-                          </label>
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {/* Champ Nom complet */}
+                        <div className="relative">
                           <input
                             type="text"
                             id="name"
                             required
-                            placeholder="Nom complet"
+                            placeholder=" "
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="w-full rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+                            className="peer block h-14 w-full rounded-2xl border border-border-thin bg-bg-page px-4 pb-2 pt-5 text-sm font-medium text-text-default outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
                           />
+                          <label
+                            htmlFor="name"
+                            className="pointer-events-none absolute left-4 top-2 z-10 origin-[0] text-[11px] font-bold text-text-secondary transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:font-normal peer-placeholder-shown:text-text-secondary/60 peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[11px] peer-focus:font-bold peer-focus:text-[#0048e4]"
+                          >
+                            Nom complet
+                          </label>
                         </div>
 
-                        <div className="flex flex-col gap-2">
-                          <label htmlFor="email" className="text-xs font-bold text-text-default">
-                            Email
-                          </label>
+                        {/* Champ Email */}
+                        <div className="relative">
                           <input
                             type="email"
                             id="email"
                             required
-                            placeholder="email@entreprise.com"
+                            placeholder=" "
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="w-full rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+                            className="peer block h-14 w-full rounded-2xl border border-border-thin bg-bg-page px-4 pb-2 pt-5 text-sm font-medium text-text-default outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
                           />
+                          <label
+                            htmlFor="email"
+                            className="pointer-events-none absolute left-4 top-2 z-10 origin-[0] text-[11px] font-bold text-text-secondary transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:font-normal peer-placeholder-shown:text-text-secondary/60 peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[11px] peer-focus:font-bold peer-focus:text-[#0048e4]"
+                          >
+                            Email
+                          </label>
                         </div>
                       </div>
 
-                      {/* Ligne 2 : Type de besoin */}
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="type" className="text-xs font-bold text-text-default">
-                          Type de besoin
-                        </label>
-                        <div className="relative">
-                          <select
-                            id="type"
-                            required
-                            value={formData.type}
-                            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                            className="w-full appearance-none rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4] cursor-pointer"
-                          >
-                            <option value="" disabled className="bg-bg-card text-text-default">
-                              Sélectionnez une option
-                            </option>
-                            <option value="UX/UI Design" className="bg-bg-card text-text-default">UX/UI Design</option>
-                            <option value="Motion Design" className="bg-bg-card text-text-default">Motion Design</option>
-                            <option value="Prise de contact / Autre" className="bg-bg-card text-text-default">Prise de contact / Autre</option>
-                          </select>
-                          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-text-secondary">
-                            <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                              <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
+                      {/* Ligne 2 : Type de besoin (Dropdown Custom Stylisé) */}
+                      <CustomSelect
+                        value={formData.type}
+                        onChange={(val) => setFormData({ ...formData, type: val })}
+                        options={[
+                          "UX/UI Design",
+                          "Motion Design",
+                          "Prise de contact / Autre",
+                        ]}
+                      />
 
                       {/* Ligne 3 : Votre message */}
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor="message" className="text-xs font-bold text-text-default">
-                          Votre message
-                        </label>
+                      <div className="relative">
                         <textarea
                           id="message"
                           required
                           rows={4}
-                          placeholder="Décrivez brièvement votre projet, vos objectifs, vos délais..."
+                          placeholder=" "
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                          className="w-full resize-none rounded-xl border border-border-thin bg-bg-page px-3.5 py-2.5 sm:px-4 sm:py-3 text-sm text-text-default placeholder:text-text-secondary/50 outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
+                          className="peer block w-full resize-none rounded-2xl border border-border-thin bg-bg-page px-4 pb-3 pt-6 text-sm font-medium text-text-default outline-none transition-all focus:border-[#0048e4] focus:ring-1 focus:ring-[#0048e4]"
                         />
+                        <label
+                          htmlFor="message"
+                          className="pointer-events-none absolute left-4 top-3.5 z-10 origin-[0] text-[11px] font-bold text-text-secondary transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-sm peer-placeholder-shown:font-normal peer-placeholder-shown:text-text-secondary/60 peer-focus:top-2.5 peer-focus:text-[11px] peer-focus:font-bold peer-focus:text-[#0048e4]"
+                        >
+                          Votre message
+                        </label>
                       </div>
 
                       {/* Bouton d'envoi */}
