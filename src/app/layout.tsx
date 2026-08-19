@@ -43,19 +43,29 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://maximelussiana.fr"),
-  title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+  metadataBase: new URL("https://www.maximelussiana.fr"),
+  title: "UX/UI & Motion Designer Freelance | Maxime Lussiana",
   description:
     "Je conçois des interfaces UX/UI, des Design Systems et des animations Motion Design pour vos produits web et contenus visuels. De la structure jusqu'au mouvement.",
+  
+  // Balise canonique pour forcer l'indexation officielle sur la version www
+  alternates: {
+    canonical: "https://www.maximelussiana.fr",
+  },
+
   authors: [{ name: "Maxime Lussiana" }],
   keywords: [
     "UX UI Designer",
     "Motion Designer",
+    "Product Designer",
     "Design System",
-    "Freelance",
-    "Paris",
+    "Freelance UX UI",
+    "Figma",
     "After Effects",
-    "Lottie",
+    "UX UI Paris",
+    "Motion Design France",
+    "Prototypage web",
+    "Design d'interface",
   ],
   icons: {
     icon: [
@@ -65,17 +75,17 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+    title: "UX/UI & Motion Designer Freelance | Maxime Lussiana",
     description:
       "Interfaces UX/UI, Design Systems et Motion Design. De la structure jusqu'au mouvement.",
-    url: "https://maximelussiana.fr",
+    url: "https://www.maximelussiana.fr",
     siteName: "Maxime Lussiana",
     images: [
       {
         url: "/og-image.jpg?v=3",
         width: 1200,
         height: 630,
-        alt: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+        alt: "UX/UI & Motion Designer Freelance | Maxime Lussiana",
       },
     ],
     locale: "fr_FR",
@@ -83,7 +93,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maxime Lussiana — UX/UI & Motion Designer Freelance",
+    title: "UX/UI & Motion Designer Freelance | Maxime Lussiana",
     description:
       "Interfaces UX/UI, Design Systems et Motion Design. De la structure jusqu'au mouvement.",
     images: ["/og-image.jpg?v=3"],
@@ -103,8 +113,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Maxime Lussiana",
-  url: "https://maximelussiana.fr",
-  image: "https://maximelussiana.fr/og-image.png",
+  url: "https://www.maximelussiana.fr",
+  image: "https://www.maximelussiana.fr/og-image.jpg",
   jobTitle: "UX/UI & Motion Designer Freelance",
   sameAs: ["https://www.linkedin.com/in/maxime-lussiana/"],
 };
