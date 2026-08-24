@@ -11,6 +11,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Container } from "../ui/Container";
+import { track } from "@vercel/analytics";
 
 const CAPABILITIES = [
   {
@@ -109,6 +110,15 @@ export function HeroSection() {
     useTransform(smoothY, (v) => v * -12 * CAPABILITIES[2].depth),
   ];
 
+  // Fonction pour forcer le scroll SANS modifier l'URL (URL propre)
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault(); // Bloque le comportement par défaut (pas de # dans l'URL)
+    const target = document.getElementById(id);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -186,9 +196,13 @@ export function HeroSection() {
               style={{ animationDelay: "300ms" }}
               className="animate-hero-item flex flex-wrap items-center gap-3 text-sm font-medium"
             >
-              {/* CTA Principal : Texte font-mono + Flèche Satoshi */}
+              {/* CTA Principal : scroll propre + tracking */}
               <Link
                 href="#contact"
+                onClick={(e) => {
+                  handleSmoothScroll(e, "contact");
+                  track("click_cta_contact", { location: "hero" });
+                }}
                 className="group relative overflow-hidden flex items-center justify-center gap-2 rounded-full border border-border-brand-btn bg-bg-action px-[22px] py-3 text-text-on-action transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,72,228,0.4)]"
               >
                 <span
@@ -207,9 +221,13 @@ export function HeroSection() {
                 </span>
               </Link>
 
-              {/* CTA Secondaire : Texte font-mono + Flèche Satoshi */}
+              {/* CTA Secondaire : scroll propre + tracking */}
               <Link
                 href="#work"
+                onClick={(e) => {
+                  handleSmoothScroll(e, "work");
+                  track("click_cta_work", { location: "hero" });
+                }}
                 className="group flex items-center justify-center gap-2 rounded-full border border-border-thin bg-bg-action-secondary px-[22px] py-3 text-text-default transition-all duration-300 hover:-translate-y-0.5 hover:border-border-thin/80"
               >
                 <span className="flex items-center gap-2 font-mono">

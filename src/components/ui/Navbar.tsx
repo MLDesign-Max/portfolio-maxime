@@ -9,6 +9,7 @@ import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { MobileDrawer } from "./MobileDrawer";
 import { Container } from "./Container";
+import { track } from "@vercel/analytics";
 
 const NAV_ITEMS = [
   { label: "Accueil", href: "#" },
@@ -29,6 +30,28 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Fonction de scroll fluide sans modifier l'URL
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    label: string
+  ) => {
+    e.preventDefault();
+
+    track("click_nav_item", { label });
+
+    if (href === "#" || href === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const targetId = href.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <motion.header
@@ -42,8 +65,16 @@ export function Navbar() {
         }`}
       >
         <Container className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+          {/* Logo - Retour en haut propre */}
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              track("click_logo");
+            }}
+            className="flex items-center"
+          >
             <Image
               src="/assets/logo-light.svg"
               alt="Maxime Lussiana — UX/UI & Motion Designer"
@@ -68,6 +99,7 @@ export function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href, item.label)}
                 className="px-[12px] py-[6px] rounded-full text-sm font-medium text-text-secondary hover:text-text-navitem-active hover:bg-bg-nav-item transition-colors"
               >
                 {item.label}
@@ -77,30 +109,30 @@ export function Navbar() {
 
           {/* Right side Actions */}
           <div className="flex items-center gap-3">
-          <ThemeToggle />
+            <ThemeToggle />
 
-          {/* Status Badge - Desktop only */}
-          <div className="hidden md:flex h-[38px] items-center gap-2.5 px-4 bg-bg-card border border-border-thin rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.025)]">
-            {/* Point lumineux */}
-            <span className="relative flex h-2 w-2 items-center justify-center">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-icon-available opacity-75 [animation-duration:3s]" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-icon-available" />
-            </span>
+            {/* Status Badge - Desktop only */}
+            <div className="hidden md:flex h-[38px] items-center gap-2.5 px-4 bg-bg-card border border-border-thin rounded-full shadow-[0_2px_12px_rgba(0,0,0,0.025)]">
+              {/* Point lumineux */}
+              <span className="relative flex h-2 w-2 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-icon-available opacity-75 [animation-duration:3s]" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-icon-available" />
+              </span>
 
-            <span className="text-xs font-mono font-bold text-text-pill-available tracking-wider uppercase leading-none">
-              Disponible
-            </span>
+              <span className="text-xs font-mono font-bold text-text-pill-available tracking-wider uppercase leading-none">
+                Disponible
+              </span>
+            </div>
+
+            {/* Hamburger Menu - Mobile only */}
+            <button
+              onClick={() => setIsDrawerOpen(true)}
+              className="lg:hidden p-2 text-text-default cursor-pointer"
+              aria-label="Open menu"
+            >
+              <Menu size={24} />
+            </button>
           </div>
-
-          {/* Hamburger Menu - Mobile only */}
-          <button
-            onClick={() => setIsDrawerOpen(true)}
-            className="lg:hidden p-2 text-text-default cursor-pointer"
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
-        </div>
         </Container>
       </motion.header>
 

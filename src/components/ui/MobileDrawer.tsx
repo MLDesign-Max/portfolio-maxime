@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { track } from "@vercel/analytics";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -12,6 +13,29 @@ interface MobileDrawerProps {
 }
 
 export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
+  // Navigation fluide + URL propre + ferme le drawer + tracking
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    label: string
+  ) => {
+    e.preventDefault();
+    onClose();
+
+    track("click_nav_item", { label, location: "mobile_drawer" });
+
+    if (href === "#" || href === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const targetId = href.replace("#", "");
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -44,7 +68,7 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
               </button>
             </div>
 
-            {/* Navigation : passage en text-lg pour une taille plus contenue */}
+            {/* Navigation */}
             <nav className="flex flex-col gap-5">
               {navItems.map((item, index) => (
                 <motion.div
@@ -55,7 +79,7 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
                 >
                   <Link
                     href={item.href}
-                    onClick={onClose}
+                    onClick={(e) => handleNavClick(e, item.href, item.label)}
                     className="text-lg font-bold tracking-tight text-text-default hover:text-text-highlight transition-colors"
                   >
                     {item.label}
@@ -71,6 +95,7 @@ export function MobileDrawer({ isOpen, onClose, navItems }: MobileDrawerProps) {
               </p>
               <a
                 href="mailto:motion@maximelussiana.fr"
+                onClick={() => track("click_email", { location: "mobile_drawer" })}
                 className="block text-sm font-bold text-text-default hover:text-text-highlight transition-colors truncate"
                 title="motion@maximelussiana.fr"
               >

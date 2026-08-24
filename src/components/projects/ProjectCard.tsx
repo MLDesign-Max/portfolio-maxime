@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { ProjectData } from "../../types/project";
+import { track } from "@vercel/analytics";
 
 /**
  * Pastille d'accent — réservée au PREMIER tag (catégorie métier).
@@ -35,7 +36,14 @@ export function ProjectCard({ project, onOpen, priority }: ProjectCardProps) {
   return (
     <button
       type="button"
-      onClick={() => onOpen(project)}
+      onClick={() => {
+        track("view_project", {
+          title: project.title,
+          client: project.client,
+          type: project.type,
+        });
+        onOpen(project);
+      }}
       aria-label={`Voir le détail du projet ${project.title} — ${project.client}`}
       className="group flex w-full cursor-pointer flex-col text-left transition-transform duration-300 ease-out hover:-translate-y-1.5 focus-visible:-translate-y-1.5 focus-visible:outline-none"
     >

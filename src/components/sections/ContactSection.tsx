@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import { CheckCheck, Calendar, ArrowUp, ChevronDown, Check } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Container } from "../ui/Container";
+import { track } from "@vercel/analytics";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/maxime-lussiana/";
 const BOOKING_URL = "https://calendar.app.google/vZDDFJJaktzNcdMp7";
@@ -158,6 +159,7 @@ export function ContactSection() {
     const result = await sendContactEmail(formData);
 
     if (result.success) {
+      track("submit_contact_form", { project_type: formData.type });
       setStatus("success");
       setFormData({ name: "", email: "", type: "", message: "", website: "" });
     } else {
@@ -254,6 +256,12 @@ export function ContactSection() {
                     href={LINKEDIN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      track("click_social", {
+                        platform: "LinkedIn",
+                        location: "contact_section",
+                      })
+                    }
                     className="group flex w-full sm:w-auto items-center justify-center rounded-full border border-border-thin bg-bg-action-secondary px-4 py-3 text-text-default transition-all duration-300 hover:-translate-y-0.5 hover:border-border-thin/80 sm:px-6"
                   >
                     <span className="font-mono text-xs sm:text-sm font-bold leading-[1.2] flex items-center gap-2 whitespace-nowrap">
@@ -306,6 +314,7 @@ export function ContactSection() {
                           href={BOOKING_URL}
                           target="_blank"
                           rel="noopener noreferrer"
+                          onClick={() => track("click_booking_calendar")}
                           className="group relative overflow-hidden flex w-full items-center justify-center gap-2 rounded-full bg-[#0048e4] px-6 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(0,72,228,0.4)]"
                         >
                           <span
