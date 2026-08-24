@@ -9,7 +9,7 @@ import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { MobileDrawer } from "./MobileDrawer";
 import { Container } from "./Container";
-import { track } from "@vercel/analytics";
+import { track } from "../../lib/analytics";
 
 const NAV_ITEMS = [
   { label: "Accueil", href: "#" },

@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { track } from "@vercel/analytics";
+import { track } from "../../lib/analytics";
 
 interface MobileDrawerProps {
   isOpen: boolean;

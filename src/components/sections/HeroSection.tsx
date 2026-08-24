@@ -11,7 +11,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Container } from "../ui/Container";
-import { track } from "@vercel/analytics";
+import { track } from "../../lib/analytics";
 
 const CAPABILITIES = [
   {

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { ProjectData } from "../../types/project";
-import { track } from "@vercel/analytics";
+import { track } from "../../lib/analytics";
 
 /**
  * Pastille d'accent — réservée au PREMIER tag (catégorie métier).

@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import { CheckCheck, Calendar, ArrowUp, ChevronDown, Check } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Container } from "../ui/Container";
-import { track } from "@vercel/analytics";
+import { track } from "../../lib/analytics";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/maxime-lussiana/";
 const BOOKING_URL = "https://calendar.app.google/vZDDFJJaktzNcdMp7";

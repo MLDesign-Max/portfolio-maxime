@@ -4,8 +4,8 @@ import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "../components/ui/ThemeProvider";
 import { CustomCursor } from "../components/ui/CustomCursor";
-import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { PostHogProvider } from "./providers"; // <-- Nouvel import PostHog
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -137,12 +137,14 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bg-page text-text-default font-satoshi antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <CustomCursor />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </ThemeProvider>
+        {/* On englobe l'application avec PostHog ici */}
+        <PostHogProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            <CustomCursor />
+            {children}
+            <SpeedInsights />
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
