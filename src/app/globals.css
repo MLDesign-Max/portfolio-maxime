@@ -188,6 +188,8 @@ body {
   background-size: 48px 48px;
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 0%, transparent 100%);
   mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 0%, transparent 100%);
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Glassmorphism utility */
@@ -197,12 +199,12 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Fix de performance Safari / WebKit pour les filtres de flou */
+.glass,
 [class*="blur-"],
 .backdrop-blur-sm,
 .backdrop-blur-md,
 .backdrop-blur-lg {
-  will-change: transform;
+  will-change: transform, backdrop-filter;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
@@ -239,5 +241,27 @@ body {
 
 .animate-hero-item {
   opacity: 0;
+  will-change: transform, opacity, filter;
   animation: heroItemFade 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+
+@supports (-webkit-app-region: inherit) {
+  @keyframes heroItemFade {
+    0% {
+      opacity: 0;
+      transform: translateY(16px);
+      filter: blur(1px); /* Réduction drastique du flou pour Chromium/Edge */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
+    }
+  }
+
+  .animate-hero-item {
+    opacity: 0;
+    will-change: transform, opacity, filter;
+    animation: heroItemFade 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+  }
 }

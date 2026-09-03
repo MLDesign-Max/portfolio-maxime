@@ -22,15 +22,15 @@ export function ProjectsSection() {
     <section id="work" className="relative isolate overflow-hidden bg-bg-page py-16 md:py-20 lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute top-[80px] left-[-10%] -z-10 h-[500px] w-[500px] rounded-full bg-[#0048e4] opacity-[0.20] blur-[160px]"
+        className="pointer-events-none absolute top-[80px] left-[-10%] -z-10 h-[500px] w-[500px] transform-gpu rounded-full bg-[#0048e4] opacity-[0.20] blur-[160px]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-[25%] right-[-10%] -z-10 h-[700px] w-[600px] rounded-full bg-[#a259ff] opacity-[0.16] blur-[180px]"
+        className="pointer-events-none absolute top-[25%] right-[-10%] -z-10 h-[700px] w-[600px] transform-gpu rounded-full bg-[#a259ff] opacity-[0.16] blur-[180px]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[15%] left-[-10%] -z-10 h-[450px] w-[500px] rounded-full bg-[#0048e4] opacity-[0.14] blur-[180px]"
+        className="pointer-events-none absolute bottom-[15%] left-[-10%] -z-10 h-[450px] w-[500px] transform-gpu rounded-full bg-[#0048e4] opacity-[0.14] blur-[180px]"
       />
       <Container>
         {/* Heading */}

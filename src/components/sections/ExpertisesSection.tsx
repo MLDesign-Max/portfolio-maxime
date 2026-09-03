@@ -111,7 +111,7 @@ function ExpertiseCard({ expertise }: { expertise: Expertise }) {
     <motion.article
       variants={itemVariants}
       /* Changement ici : hover:border-border-brand-card */
-      className="group flex flex-col overflow-hidden rounded-3xl border border-border-thin bg-bg-card transition-colors duration-300 hover:border-border-brand-card"
+      className="group flex flex-col overflow-hidden rounded-3xl border border-border-thin bg-bg-card transform-gpu transition-colors duration-300 hover:border-border-brand-card"
     >
       <div className="p-4 pb-0">
         <div className="relative aspect-[556/292] w-full overflow-hidden rounded-[10px]">
@@ -163,11 +163,11 @@ export function ExpertisesSection() {
     <section id="expertises" className="relative isolate overflow-hidden bg-bg-page py-16 md:py-20 lg:py-24">
       <div
         aria-hidden
-        className="pointer-events-none absolute top-[15%] left-[-5%] -z-10 h-[500px] w-[500px] rounded-full bg-[#0048e4] opacity-[0.18] blur-[150px]"
+        className="pointer-events-none absolute top-[15%] left-[-5%] -z-10 h-[500px] w-[500px] transform-gpu rounded-full bg-[#0048e4] opacity-[0.18] blur-[150px]"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-[15%] right-[-5%] -z-10 h-[500px] w-[500px] rounded-full bg-[#a259ff] opacity-[0.16] blur-[150px]"
+        className="pointer-events-none absolute top-[15%] right-[-5%] -z-10 h-[500px] w-[500px] transform-gpu rounded-full bg-[#a259ff] opacity-[0.16] blur-[150px]"
       />
       <Container>
         {/* Heading avec saut à la ligne avant "l'alliance" et minuscules */}
@@ -225,8 +225,7 @@ export function ExpertisesSection() {
               variants={serviceCardVariants}
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              /* Changement ici : hover:border-border-brand-card */
-              className="flex flex-col justify-start gap-6 rounded-xl border border-border-thin bg-bg-card p-6 transition-colors duration-300 hover:border-border-brand-card"
+              className="flex flex-col justify-start gap-6 rounded-xl border border-border-thin bg-bg-card p-6 transform-gpu transition-colors duration-300 hover:border-border-brand-card"
             >
               <span className="flex w-fit items-center justify-center rounded-full bg-bg-brand-pill px-2 py-1.5 font-mono text-[10px] leading-none font-bold uppercase whitespace-nowrap text-text-pill-primary transition-colors duration-300">
                 {service.label}

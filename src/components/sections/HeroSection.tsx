@@ -143,7 +143,7 @@ export function HeroSection() {
           y: haloPrimaryY,
           background: "radial-gradient(ellipse at top, rgba(0, 72, 228, 0.35) 0%, rgba(162, 89, 255, 0.20) 45%, transparent 75%)"
         }}
-        className="pointer-events-none absolute -top-[15%] left-1/2 -z-10 h-[500px] w-[1000px] -ml-[500px] rounded-full blur-[100px]"
+        className="pointer-events-none absolute -top-[15%] left-1/2 -z-10 h-[500px] w-[1000px] -ml-[500px] transform-gpu rounded-full blur-[100px]"
       />
 
       <motion.div
@@ -153,7 +153,7 @@ export function HeroSection() {
           y: haloSecondaryY,
           background: "radial-gradient(circle, rgba(0, 72, 228, 0.30) 0%, rgba(162, 89, 255, 0.15) 50%, transparent 80%)"
         }}
-        className="pointer-events-none absolute right-[5%] top-[15%] -z-10 hidden h-[450px] w-[450px] rounded-full blur-[80px] xl:block"
+        className="pointer-events-none absolute right-[5%] top-[15%] -z-10 hidden h-[450px] w-[450px] transform-gpu rounded-full blur-[80px] xl:block"
       />
 
       <Container className="relative flex flex-col justify-start gap-6 pb-16 pt-32 sm:pt-36 md:pb-20 md:pt-[160px] lg:min-h-[818px] lg:justify-center lg:pb-24 lg:pt-[191px]">
@@ -269,7 +269,7 @@ export function HeroSection() {
                   ease: "easeInOut",
                   delay: floatDelay,
                 }}
-                className={`flex items-center gap-4 rounded-full border-[0.5px] border-border-thin bg-bg-card py-3 pl-3 pr-4 shadow-sm transition-all duration-300 ${hoverStyles}`}
+                className={`flex items-center gap-4 rounded-full border-[0.5px] border-border-thin bg-bg-card py-3 pl-3 pr-4 shadow-sm transform-gpu transition-all duration-300 ${hoverStyles}`}
               >
                 <span
                   className={`flex items-center rounded-full p-2 transition-transform duration-300 group-hover:scale-110 ${iconWrapper}`}

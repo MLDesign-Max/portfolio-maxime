@@ -96,7 +96,7 @@ function CustomSelect({ value, onChange, options }: CustomSelectProps) {
             animate={{ opacity: 1, y: 6, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-border-thin bg-bg-card p-1.5 shadow-2xl backdrop-blur-xl"
+            className="absolute left-0 right-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-border-thin bg-bg-card p-1.5 transform-gpu shadow-2xl backdrop-blur-xl"
           >
             {options.map((option) => {
               const isSelected = value === option;
@@ -175,7 +175,7 @@ export function ContactSection() {
           {/* Halo externe */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 -top-[100px] -z-10 h-[260px] w-[80%] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0048e4] to-[#a259ff] opacity-12 dark:opacity-40 blur-[110px]"
+            className="pointer-events-none absolute left-1/2 -top-[100px] -z-10 h-[260px] w-[80%] -translate-x-1/2 transform-gpu rounded-full bg-gradient-to-r from-[#0048e4] to-[#a259ff] opacity-12 dark:opacity-40 blur-[110px]"
           />
 
           <motion.div
@@ -198,7 +198,7 @@ export function ContactSection() {
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-[#a259ff] opacity-[0.04] dark:opacity-[0.14] blur-[130px]"
+              className="pointer-events-none absolute right-[5%] top-1/2 -z-10 h-[400px] w-[400px] -translate-y-1/2 transform-gpu rounded-full bg-[#a259ff] opacity-[0.04] dark:opacity-[0.14] blur-[130px]"
             />
 
             {/* Grille responsive */}
@@ -285,7 +285,7 @@ export function ContactSection() {
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
                 className="xl:col-span-6"
               >
-                <div className="rounded-2xl border border-border-thin bg-bg-card/80 p-4 sm:p-6 md:p-8 backdrop-blur-md shadow-xl transition-colors duration-300">
+                <div className="rounded-2xl border border-border-thin bg-bg-card/80 p-4 sm:p-6 md:p-8 transform-gpu backdrop-blur-md shadow-xl transition-colors duration-300">
                   {status === "success" ? (
                     <motion.div 
                       initial={{ opacity: 0, scale: 0.96 }}

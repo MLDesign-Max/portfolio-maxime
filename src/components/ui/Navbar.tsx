@@ -58,7 +58,7 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-[padding,background-color,border-color,box-shadow] duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transform-gpu transition-[padding,background-color,border-color,box-shadow] duration-300 ${
           isScrolled
             ? "py-4 bg-bg-page/75 backdrop-blur-md border-b border-border-thin/50 shadow-sm"
             : "py-6 bg-transparent border-b border-transparent"
